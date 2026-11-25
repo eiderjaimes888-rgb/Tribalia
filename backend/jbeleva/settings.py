@@ -1,5 +1,6 @@
 import importlib.util
 import os
+import shutil
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -16,6 +17,7 @@ _default_hosts = [
     'www.tribalia.com.co',
     'localhost',
     '127.0.0.1',
+    '.vercel.app',
     '.onrender.com',
     '.up.railway.app',
 ]
@@ -28,6 +30,7 @@ if _render_host and _render_host not in ALLOWED_HOSTS:
 CSRF_TRUSTED_ORIGINS = [
     'https://tribalia.com.co',
     'https://www.tribalia.com.co',
+    'https://*.vercel.app',
     'https://*.onrender.com',
     'https://*.up.railway.app',
 ]
@@ -86,10 +89,16 @@ if _database_url:
         'default': dj_database_url.config(default=_database_url, conn_max_age=600)
     }
 else:
+    _sqlite_path = BASE_DIR / 'db.sqlite3'
+    if os.environ.get('VERCEL'):
+        _tmp_db = Path('/tmp/db.sqlite3')
+        if not _tmp_db.exists() and _sqlite_path.exists():
+            shutil.copy2(_sqlite_path, _tmp_db)
+        _sqlite_path = _tmp_db
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'NAME': _sqlite_path,
         }
     }
 
