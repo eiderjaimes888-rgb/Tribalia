@@ -1,0 +1,200 @@
+<%- include('partials/header') %>
+
+  <!-- Hero Rotativo Animado de Aplicaciones -->
+  <section id="inicio" class="hero-showcase">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-badge" id="heroBadge">Ecosistema Tribalia · 1 / 10</span>
+          <h1 class="hero-title" id="heroTitle">Tribalia Software Contable</h1>
+          <p class="hero-desc" id="heroDesc"></p>
+          <div class="hero-features-inline" id="heroChips"></div>
+          <div class="hero-cta-group">
+            <a href="/tribalia-software-contable" id="heroBtnInfo" class="btn btn-light">Más información →</a>
+            <a href="/tienda" id="heroBtnStore" class="btn btn-glass">Adquirir licencia (Mensual / Anual)</a>
+          </div>
+        </div>
+
+        <div class="hero-visual-card" id="heroVisualCard">
+          <div class="hero-product-logo-box" id="heroProductLogo"></div>
+          <div>
+            <h2 id="heroCardTitle" style="font-size:1.25rem;margin-bottom:4px;">Tribalia Software Contable</h2>
+            <p id="heroCardTagline" style="font-size:0.88rem;color:#64748B;"></p>
+          </div>
+          <a href="https://contable.tribalia.com.co" id="heroCardSubdomain" target="_blank" rel="noopener noreferrer" class="hero-product-subdomain">contable.tribalia.com.co</a>
+          <div class="hero-color-swatches" id="heroSwatches"></div>
+        </div>
+      </div>
+
+      <div class="hero-controls">
+        <div class="hero-dots" id="heroDots"></div>
+        <div class="hero-arrows">
+          <button type="button" class="arrow-btn" id="heroPrev" aria-label="Aplicación anterior">‹</button>
+          <button type="button" class="arrow-btn" id="heroNext" aria-label="Siguiente aplicación">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ecosistema de 10 Productos -->
+  <section id="productos" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="ecosystem_eyebrow">Portafolio Oficial</span>
+        <h2 class="section-title" data-i18n="ecosystem_title">Ecosistema Tecnológico Tribalia</h2>
+        <p class="section-subtitle" data-i18n="ecosystem_subtitle">Cada solución cuenta con su propia identidad cromática, acceso directo en la nube, página informativa con demostraciones y licenciamiento mensual o anual.</p>
+      </div>
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Noticias Tribalia -->
+  <section id="noticias" class="section section--white">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="news_eyebrow">Actualidad Tribalia</span>
+        <h2 class="section-title" data-i18n="news_title">Noticias y Novedades Normativas</h2>
+        <p class="section-subtitle" data-i18n="news_subtitle">Actualizaciones tributarias, lanzamientos del ecosistema Tribalia y guías prácticas para contadores y empresas.</p>
+      </div>
+
+      <% if (articles && articles.length > 0) { %>
+      <div class="editorial-grid">
+        <% articles.forEach(article => { %>
+        <article class="editorial-card">
+          <div class="editorial-cover" <% if (article.cover_image_path) { %>style="background-image:url('<%= article.cover_image_path %>');background-size:cover;background-position:center;"<% } %>>
+            <span class="editorial-tag"><%= article.tag %></span>
+          </div>
+          <div class="editorial-body">
+            <span class="editorial-meta"><%= new Date(article.published_at || article.created_at).toLocaleDateString('es-CO') %></span>
+            <h3><%= article.title %></h3>
+            <p><%= article.summary || (article.content || '').slice(0, 140) %></p>
+            <a href="/noticias/<%= article.slug %>" class="editorial-link">Leer noticia →</a>
+          </div>
+        </article>
+        <% }) %>
+      </div>
+      <% } else { %>
+      <div style="text-align:center;padding:36px 24px;border:1px dashed var(--border-light);border-radius:var(--radius-lg);background:var(--bg-page);color:var(--gris-suave);">
+        <p data-i18n="news_empty" style="font-size:1rem;">Próximamente publicaremos aquí las noticias y actualizaciones oficiales de Tribalia.</p>
+      </div>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- Revista Tribalia -->
+  <section id="revista" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="mag_eyebrow">Publicación Especializada</span>
+        <h2 class="section-title" data-i18n="mag_title">Revista Tribalia</h2>
+        <p class="section-subtitle" data-i18n="mag_subtitle">Ediciones digitales interactivas tipo libro físico con cambio de página animado y descarga directa en PDF.</p>
+      </div>
+
+      <% if (magazines && magazines.length > 0) { %>
+      <div class="editorial-grid">
+        <% magazines.forEach(mag => { %>
+        <article class="editorial-card">
+          <div class="editorial-cover" style="height:240px;<%= mag.cover_image_path ? `background-image:url('${mag.cover_image_path}');background-size:cover;background-position:center;` : 'background:linear-gradient(135deg,#071b3a 0%,#00A8E8 100%);' %>">
+            <span class="editorial-tag">Edición N.º <%= mag.edition_number %></span>
+          </div>
+          <div class="editorial-body">
+            <span class="editorial-meta"><%= new Date(mag.publish_date).toLocaleDateString('es-CO') %></span>
+            <h3><%= mag.title %></h3>
+            <p><%= mag.summary || 'Edición digital interactiva de Revista Tribalia.' %></p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
+              <a href="/revista/<%= mag.id %>" class="btn btn-primary" style="padding:8px 14px;font-size:0.82rem;">Leer revista interactiva →</a>
+              <% if (mag.pdf_path) { %>
+              <a href="<%= mag.pdf_path %>" download class="btn btn-outline" style="padding:8px 14px;font-size:0.82rem;">Descargar PDF ↓</a>
+              <% } %>
+            </div>
+          </div>
+        </article>
+        <% }) %>
+      </div>
+      <% } else { %>
+      <div style="text-align:center;padding:36px 24px;border:1px dashed var(--border-light);border-radius:var(--radius-lg);background:var(--blanco);color:var(--gris-suave);">
+        <p data-i18n="mag_empty" style="font-size:1rem;">Próximamente estará disponible la primera edición interactiva de la Revista Tribalia.</p>
+      </div>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- Banner Tienda -->
+  <section id="tienda" class="section section--white">
+    <div class="container">
+      <div class="store-cta-banner">
+        <div>
+          <span class="hero-badge" style="margin-bottom:10px;" data-i18n="store_badge">Licenciamiento Flexible</span>
+          <h2 data-i18n="store_title">Adquiere tu licencia Mensual o Anual en la Tienda Tribalia</h2>
+          <p data-i18n="store_desc">Activa cualquiera de nuestras 10 soluciones en la nube de forma inmediata con planes flexibles adaptados a contadores independientes, firmas y empresas.</p>
+        </div>
+        <div>
+          <a href="/tienda" class="btn btn-light" data-i18n="store_btn">Ir a la Tienda Tribalia →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="contact_eyebrow">Hablemos</span>
+        <h2 class="section-title" data-i18n="contact_title">Contacto Directo Tribalia</h2>
+        <p class="section-subtitle" data-i18n="contact_subtitle">¿Necesitas una demostración personalizada o asesoría para elegir tu plan? Nuestro equipo está listo para atenderte.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info-card">
+          <h3 data-i18n="contact_channels">Canales Oficiales</h3>
+          <p style="color:rgba(255,255,255,0.82);font-size:0.94rem;" data-i18n="contact_channels_desc">Comunícate directamente con Tribalia Soluciones Informáticas S.A.S.</p>
+          <ul class="contact-list">
+            <li>📱 <span>WhatsApp / Teléfono: <strong>+57 313 271 8850</strong></span></li>
+            <li>📸 <span>Instagram: <strong>@tribalia.si</strong></span></li>
+            <li>🌐 <span>Sitio Web: <strong>www.tribalia.com.co</strong></span></li>
+            <li>✉️ <span>Correo: <strong>contacto@tribalia.com.co</strong></span></li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="tribaliaContactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cName" data-i18n="form_name">Nombre completo</label>
+              <input type="text" id="cName" required placeholder="Ej. Laura Gómez">
+            </div>
+            <div class="form-group">
+              <label for="cCompany" data-i18n="form_company">Empresa / Firma</label>
+              <input type="text" id="cCompany" placeholder="Ej. Consultores S.A.S.">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cEmail" data-i18n="form_email">Correo electrónico</label>
+              <input type="email" id="cEmail" required placeholder="laura@empresa.com">
+            </div>
+            <div class="form-group">
+              <label for="cPhone" data-i18n="form_phone">Teléfono / WhatsApp</label>
+              <input type="tel" id="cPhone" placeholder="313 000 0000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cProduct" data-i18n="form_product">Aplicación de interés</label>
+            <select id="cProduct">
+              <option value="General">Ecosistema Completo Tribalia</option>
+              <% products.forEach(prod => { %>
+              <option value="<%= prod.name %>"><%= prod.name %></option>
+              <% }) %>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cMessage" data-i18n="form_message">Mensaje</label>
+            <textarea id="cMessage" rows="4" required placeholder="Cuéntanos qué proceso deseas automatizar..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" data-i18n="form_submit">Enviar mensaje</button>
+          <p id="contactFeedback" style="display:none;font-weight:600;font-size:0.9rem;"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+<%- include('partials/footer') %>

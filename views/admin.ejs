@@ -1,0 +1,140 @@
+<%- include('partials/header') %>
+
+  <section class="section section--white" style="padding-top:48px;">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:28px;">
+        <div>
+          <span class="section-eyebrow">Administración General</span>
+          <h1 class="section-title" style="margin-bottom:4px;">Panel Administrativo Tribalia</h1>
+          <p style="color:#64748B;">Gestiona Noticias (PNG), Revistas (PNG + EPUB + PDF), Precios de la Tienda y Leads.</p>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <a href="/comercial" class="btn btn-primary">Área Comercial →</a>
+          <a href="/logout" class="btn btn-outline" style="border-color:#DC2626;color:#DC2626;">Cerrar sesión</a>
+        </div>
+      </div>
+
+      <% if (notice) { %>
+      <div style="background:#ECFDF5;border:1px solid #10B981;color:#065F46;padding:14px 18px;border-radius:12px;margin-bottom:24px;font-weight:600;">
+        <%= notice %>
+      </div>
+      <% } %>
+
+      <div class="about-grid" style="grid-template-columns:1fr 1fr;margin-bottom:36px;">
+        <!-- Subir Noticia -->
+        <div class="about-story">
+          <h2 style="margin-bottom:14px;">Publicar Noticia</h2>
+          <form method="post" action="/admin/news" enctype="multipart/form-data" style="display:grid;gap:12px;">
+            <div class="form-group">
+              <label>Título de la Noticia</label>
+              <input type="text" name="title" required>
+            </div>
+            <div class="form-group">
+              <label>Etiqueta / Categoría</label>
+              <input type="text" name="tag" value="Actualidad Tribalia">
+            </div>
+            <div class="form-group">
+              <label>Resumen</label>
+              <textarea name="summary" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Contenido completo</label>
+              <textarea name="content" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+              <label>Imagen Carátula (PNG / JPG)</label>
+              <input type="file" name="cover_image" accept=".png,.jpg,.jpeg,.webp">
+            </div>
+            <button type="submit" class="btn btn-primary">Publicar Noticia</button>
+          </form>
+        </div>
+
+        <!-- Subir Revista -->
+        <div class="about-story">
+          <h2 style="margin-bottom:14px;">Subir Revista (Carátula PNG + EPUB + PDF)</h2>
+          <form method="post" action="/admin/magazines" enctype="multipart/form-data" style="display:grid;gap:12px;">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Título de Edición</label>
+                <input type="text" name="title" required>
+              </div>
+              <div class="form-group">
+                <label>N.º Edición</label>
+                <input type="number" name="edition_number" value="1" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Resumen</label>
+              <textarea name="summary" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Imagen Carátula (PNG / JPG)</label>
+              <input type="file" name="cover_image" accept=".png,.jpg,.jpeg,.webp">
+            </div>
+            <div class="form-group">
+              <label>Archivo EPUB (para lectura libro abierto)</label>
+              <input type="file" name="epub_file" accept=".epub" required>
+            </div>
+            <div class="form-group">
+              <label>Archivo PDF (para descarga directa)</label>
+              <input type="file" name="pdf_file" accept=".pdf" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Subir Revista</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Listado de Noticias y Revistas -->
+      <div class="about-grid" style="grid-template-columns:1fr 1fr;margin-bottom:36px;">
+        <div class="about-story">
+          <h3 style="margin-bottom:12px;">Noticias Publicadas (<%= articles.length %>)</h3>
+          <% articles.forEach(a => { %>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #E2E8F0;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <% if (a.cover_image_path) { %><img src="<%= a.cover_image_path %>" style="height:36px;width:48px;object-fit:cover;border-radius:6px;"><% } %>
+              <div><strong><%= a.title %></strong></div>
+            </div>
+            <form method="post" action="/admin/news/delete">
+              <input type="hidden" name="id" value="<%= a.id %>">
+              <button type="submit" class="btn btn-outline" style="padding:5px 10px;font-size:0.78rem;border-color:#DC2626;color:#DC2626;">Eliminar</button>
+            </form>
+          </div>
+          <% }) %>
+        </div>
+
+        <div class="about-story">
+          <h3 style="margin-bottom:12px;">Revistas Publicadas (<%= magazines.length %>)</h3>
+          <% magazines.forEach(m => { %>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #E2E8F0;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <% if (m.cover_image_path) { %><img src="<%= m.cover_image_path %>" style="height:40px;width:32px;object-fit:cover;border-radius:4px;"><% } %>
+              <div><strong><%= m.title %></strong> <small>(Ed. <%= m.edition_number %>)</small></div>
+            </div>
+            <form method="post" action="/admin/magazines/delete">
+              <input type="hidden" name="id" value="<%= m.id %>">
+              <button type="submit" class="btn btn-outline" style="padding:5px 10px;font-size:0.78rem;border-color:#DC2626;color:#DC2626;">Eliminar</button>
+            </form>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+
+      <!-- Edición rápida de Precios de Tienda -->
+      <div class="about-story">
+        <h2 style="margin-bottom:14px;">Precios de la Tienda (Mensual y Anual)</h2>
+        <div style="display:grid;gap:10px;">
+          <% plans.forEach(plan => { %>
+          <form method="post" action="/admin/plans/update" style="display:grid;grid-template-columns:1.5fr 0.7fr 0.8fr auto;gap:12px;align-items:center;border-bottom:1px solid #F1F5F9;padding-bottom:8px;">
+            <input type="hidden" name="id" value="<%= plan.id %>">
+            <div><strong><%= plan.product_name %></strong></div>
+            <div><%= plan.billing_cycle === 'annual' ? 'Anual' : 'Mensual' %></div>
+            <input type="number" name="price" step="100" value="<%= Number(plan.price) %>" style="padding:7px 10px;border:1px solid #CBD5E1;border-radius:8px;">
+            <button type="submit" class="btn btn-outline" style="padding:7px 14px;font-size:0.82rem;">Actualizar</button>
+          </form>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<%- include('partials/footer') %>

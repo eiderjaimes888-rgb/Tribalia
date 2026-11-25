@@ -1,0 +1,96 @@
+<%- include('partials/header') %>
+
+  <section class="product-detail-hero" style="--active-accent: <%= accentColor %>; --active-bridge: <%= bridgeColor %>;">
+    <div class="container">
+      <div class="product-detail-grid">
+        <div>
+          <span class="hero-badge">Propuesta Comercial Exclusiva · <%= proposal.code %></span>
+          <h1 class="hero-title">Hola, <%= proposal.client_name %></h1>
+          <p class="hero-desc">
+            <% if (proposal.client_company) { %>
+              Preparada especialmente para <strong><%= proposal.client_company %></strong> por <%= proposal.commercial_name %>.
+            <% } else { %>
+              Preparada especialmente para ti por <%= proposal.commercial_name %>.
+            <% } %>
+          </p>
+          <div class="hero-cta-group">
+            <a href="<%= checkoutUrl %>" class="btn btn-light">Pagar en Tienda con Descuento →</a>
+            <a href="#detalle-propuesta" class="btn btn-glass">Ver desglose de inversión</a>
+          </div>
+        </div>
+        <% if (primaryProduct) { %>
+        <div class="product-detail-logo-card">
+          <img src="/img/logos/<%= primaryProduct.slug %>.svg" alt="<%= primaryProduct.name %>" style="height:150px;width:100%;object-fit:contain;margin-bottom:10px;">
+          <div style="font-weight:700;color:#0B2853;"><%= primaryProduct.name %></div>
+          <% if (Number(proposal.discount_percent) > 0) { %>
+          <div style="margin-top:8px;display:inline-block;background:#DCFCE7;color:#166534;padding:5px 14px;border-radius:999px;font-weight:800;font-size:0.9rem;">
+            <%= Number(proposal.discount_percent) %>% Descuento Especial Aplicado
+          </div>
+          <% } %>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </section>
+
+  <section id="detalle-propuesta" class="section section--white">
+    <div class="container" style="max-width:920px;">
+      <div class="about-story">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
+          <div>
+            <h2>Detalle de Soluciones Incluidas</h2>
+            <p style="color:#64748B;font-size:0.9rem;">Código: <strong><%= proposal.code %></strong> <% if (proposal.valid_until) { %>· Válida hasta: <strong><%= new Date(proposal.valid_until).toLocaleDateString('es-CO') %></strong><% } %></p>
+          </div>
+          <span class="product-status"><%= proposal.status %></span>
+        </div>
+
+        <table style="width:100%;border-collapse:collapse;margin-bottom:24px;">
+          <thead>
+            <tr style="border-bottom:2px solid #E2E8F0;text-align:left;font-family:'Montserrat',sans-serif;font-size:0.84rem;color:#64748B;">
+              <th style="padding:10px 8px;">Producto / Suscripción</th>
+              <th style="padding:10px 8px;">Cant.</th>
+              <th style="padding:10px 8px;text-align:right;">Valor Unitario</th>
+              <th style="padding:10px 8px;text-align:right;">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% proposal.items.forEach(item => { %>
+            <tr style="border-bottom:1px solid #E2E8F0;">
+              <td style="padding:14px 8px;">
+                <strong style="color:#0B2853;"><%= item.product_name %></strong><br>
+                <span style="font-size:0.84rem;color:#64748B;"><%= item.plan_name %> (<%= item.billing_cycle === 'annual' ? 'Anual' : 'Mensual' %>)</span>
+              </td>
+              <td style="padding:14px 8px;"><%= item.quantity %></td>
+              <td style="padding:14px 8px;text-align:right;">$<%= Number(item.unit_price).toLocaleString('es-CO') %> COP</td>
+              <td style="padding:14px 8px;text-align:right;font-weight:700;">$<%= Number(item.line_total).toLocaleString('es-CO') %> COP</td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+
+        <% if (proposal.notes) { %>
+        <div style="background:#F8FAFC;border-left:4px solid <%= accentColor %>;padding:14px 18px;border-radius:8px;margin-bottom:24px;">
+          <strong style="color:#0B2853;">Notas y condiciones:</strong>
+          <p style="margin-top:4px;font-size:0.92rem;"><%= proposal.notes %></p>
+        </div>
+        <% } %>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding-top:18px;border-top:2px solid #E2E8F0;">
+          <div>
+            <div style="font-size:0.92rem;color:#64748B;">Subtotal: $<%= Number(proposal.subtotal).toLocaleString('es-CO') %> COP</div>
+            <% if (Number(proposal.discount_percent) > 0) { %>
+            <div style="font-size:0.98rem;color:#008B7A;font-weight:700;">Descuento comercial (<%= proposal.discount_percent %>%): -$<%= Number(proposal.discount_amount).toLocaleString('es-CO') %> COP</div>
+            <% } %>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.85rem;color:#0B2853;margin-top:4px;">
+              Total a Pagar: $<%= Number(proposal.total_price).toLocaleString('es-CO') %> COP
+            </div>
+          </div>
+          <a href="<%= checkoutUrl %>" class="btn btn-primary" style="padding:14px 28px;font-size:1rem;background:<%= accentColor %>;">
+            Ir a Pagar en Tienda →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<%- include('partials/footer') %>

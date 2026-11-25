@@ -1,0 +1,140 @@
+<%- include('partials/header') %>
+
+  <section class="section section--white" style="padding-top:48px;">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:32px;">
+        <div>
+          <span class="section-eyebrow">Portal Interno</span>
+          <h1 class="section-title" style="margin-bottom:4px;">Área Comercial y Control de Leads</h1>
+          <p style="color:#64748B;">Hola, <strong><%= user.username %></strong>. Crea propuestas con descuento libre y gestiona los mensajes de interés.</p>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <a href="/admin" class="btn btn-outline">Panel Admin (/admin)</a>
+          <a href="/logout" class="btn btn-outline" style="border-color:#DC2626;color:#DC2626;">Salir</a>
+        </div>
+      </div>
+
+      <% if (createdProposal) { %>
+      <div style="background:#ECFDF5;border:2px solid #10B981;border-radius:16px;padding:24px;margin-bottom:28px;">
+        <h3 style="color:#065F46;margin-bottom:8px;">¡Propuesta <%= createdProposal.code %> creada con éxito!</h3>
+        <p style="color:#065F46;margin-bottom:10px;">Comparte este enlace directo con tu cliente <strong><%= createdProposal.client_name %></strong> (incluye <%= createdProposal.discount_percent %>% de descuento y botón de pago):</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+          <input type="text" readonly value="<%= baseUrl %>/propuesta/<%= createdProposal.code %>" style="flex:1;min-width:260px;padding:10px 14px;border-radius:8px;border:1px solid #10B981;font-weight:700;">
+          <a href="/propuesta/<%= createdProposal.code %>" target="_blank" class="btn btn-primary">Abrir Propuesta ↗</a>
+        </div>
+      </div>
+      <% } %>
+
+      <div class="about-grid" style="grid-template-columns:1fr 1fr;margin-bottom:42px;">
+        <div class="about-story">
+          <h2 style="margin-bottom:16px;">Nueva Propuesta Comercial</h2>
+          <form method="post" action="/comercial/propuesta" style="display:grid;gap:14px;">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nombre del Cliente</label>
+                <input type="text" name="client_name" required placeholder="Ej. Carlos Pérez">
+              </div>
+              <div class="form-group">
+                <label>Empresa / Firma</label>
+                <input type="text" name="client_company" placeholder="Ej. Contadores Asociados">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Correo del Cliente</label>
+                <input type="email" name="client_email" required placeholder="cliente@empresa.com">
+              </div>
+              <div class="form-group">
+                <label>Teléfono / WhatsApp</label>
+                <input type="text" name="client_phone" placeholder="313 000 0000">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Porcentaje de Descuento (%)</label>
+                <input type="number" name="discount_percent" step="0.5" min="0" max="100" value="0" required>
+              </div>
+              <div class="form-group">
+                <label>Válida hasta</label>
+                <input type="date" name="valid_until">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Selecciona Productos y Planes (Mensual / Anual)</label>
+              <div style="max-height:240px;overflow-y:auto;border:1px solid #E2E8F0;border-radius:10px;padding:10px;display:grid;gap:8px;">
+                <% plans.forEach(plan => { %>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:0.86rem;border-bottom:1px solid #F1F5F9;padding-bottom:6px;">
+                  <label style="display:flex;align-items:center;gap:8px;margin:0;font-weight:500;cursor:pointer;">
+                    <input type="checkbox" name="plan_ids" value="<%= plan.id %>">
+                    <span><strong><%= plan.product_name %></strong> · <%= plan.billing_cycle === 'annual' ? 'Anual' : 'Mensual' %> ($<%= Number(plan.price).toLocaleString('es-CO') %>)</span>
+                  </label>
+                  <input type="number" name="qty_<%= plan.id %>" value="1" min="1" style="width:64px;padding:4px 8px;" title="Cantidad">
+                </div>
+                <% }) %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Notas / Condiciones</label>
+              <textarea name="notes" rows="2" placeholder="Incluye implementación y capacitación inicial..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Generar Link de Propuesta →</button>
+          </form>
+        </div>
+
+        <div class="about-story">
+          <h2 style="margin-bottom:16px;">Propuestas Recientes</h2>
+          <div style="display:grid;gap:12px;max-height:560px;overflow-y:auto;">
+            <% if (proposals.length === 0) { %>
+              <p style="color:#64748B;">Aún no hay propuestas creadas.</p>
+            <% } %>
+            <% proposals.forEach(prop => { %>
+            <div style="border:1px solid #E2E8F0;border-radius:12px;padding:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;">
+              <div>
+                <div style="font-weight:800;color:#0B2853;"><%= prop.code %> · <%= prop.client_name %></div>
+                <div style="font-size:0.84rem;color:#64748B;">Dto: <%= prop.discount_percent %>% · Total: <strong>$<%= Number(prop.total_price).toLocaleString('es-CO') %> COP</strong></div>
+              </div>
+              <a href="/propuesta/<%= prop.code %>" target="_blank" class="btn btn-outline" style="padding:6px 12px;font-size:0.8rem;">Ver Link ↗</a>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-story">
+        <h2 style="margin-bottom:16px;">Control de Mensajes de Interés (Leads)</h2>
+        <div style="display:grid;gap:14px;">
+          <% if (leads.length === 0) { %>
+            <p style="color:#64748B;">No hay mensajes de contacto registrados todavía.</p>
+          <% } %>
+          <% leads.forEach(lead => { %>
+          <form method="post" action="/comercial/lead" style="border:1px solid #E2E8F0;border-radius:12px;padding:16px;display:grid;grid-template-columns:1.3fr 1fr 0.7fr auto;gap:12px;align-items:center;">
+            <input type="hidden" name="lead_id" value="<%= lead.id %>">
+            <div>
+              <strong style="color:#0B2853;"><%= lead.name %></strong> <% if (lead.company) { %>(<%= lead.company %>)<% } %>
+              <div style="font-size:0.84rem;color:#00A8E8;font-weight:700;">Interés: <%= lead.product_interest %></div>
+              <div style="font-size:0.82rem;color:#64748B;"><%= lead.email %> · <%= lead.phone %></div>
+              <p style="font-size:0.86rem;margin-top:6px;"><%= lead.message %></p>
+            </div>
+            <div>
+              <input type="text" name="commercial_notes" value="<%= lead.commercial_notes || '' %>" placeholder="Notas de seguimiento..." style="width:100%;padding:8px 10px;border:1px solid #CBD5E1;border-radius:8px;">
+            </div>
+            <div>
+              <select name="status" style="width:100%;padding:8px 10px;border:1px solid #CBD5E1;border-radius:8px;">
+                <option value="nuevo" <%= lead.status === 'nuevo' ? 'selected' : '' %>>Nuevo</option>
+                <option value="en_contacto" <%= lead.status === 'en_contacto' ? 'selected' : '' %>>En contacto</option>
+                <option value="propuesta_enviada" <%= lead.status === 'propuesta_enviada' ? 'selected' : '' %>>Propuesta enviada</option>
+                <option value="cerrado" <%= lead.status === 'cerrado' ? 'selected' : '' %>>Cerrado / Ganado</option>
+                <option value="descartado" <%= lead.status === 'descartado' ? 'selected' : '' %>>Descartado</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="padding:8px 14px;font-size:0.82rem;">Guardar</button>
+          </form>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<%- include('partials/footer') %>

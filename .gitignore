@@ -2,6 +2,8 @@ __pycache__/
 *.py[cod]
 *.pyo
 .env
+node_modules/
+public/uploads/
 venv/
 .venv/
 JBeleva.zip
