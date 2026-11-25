@@ -12,6 +12,17 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Evitar que errores asíncronos no capturados tumben el proceso Node.js con 503
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled Rejection:', reason);
+});
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err);
+});
+
+const asyncHandler = (fn) => (req, res, next) =>
+  Promise.resolve(fn(req, res, next)).catch(next);
+
 // Asegurar carpetas de subida
 const newsUploadDir = path.join(__dirname, 'public', 'uploads', 'news');
 const magUploadDir = path.join(__dirname, 'public', 'uploads', 'magazines');
@@ -36,7 +47,19 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.set('trust proxy', 1);
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+  express.static(path.join(__dirname, 'public'), {
+    setHeaders: (res, filePath) => {
+      if (filePath.endsWith('.js')) {
+        res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+      } else if (filePath.endsWith('.css')) {
+        res.setHeader('Content-Type', 'text/css; charset=utf-8');
+      } else if (filePath.endsWith('.svg')) {
+        res.setHeader('Content-Type', 'image/svg+xml; charset=utf-8');
+      }
+    }
+  })
+);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -78,7 +101,7 @@ async function ensureAdminUser() {
       console.log('Usuario Admin inicializado en MySQL.');
     }
   } catch (err) {
-    console.error('Aviso al verificar usuario Admin (¿ya importaste tribalia_mysql.sql?):', err.message);
+    console.error('Aviso al verificar usuario Admin:', err.message);
   }
 }
 
@@ -130,11 +153,21 @@ async function getProposalWithItems(code) {
   return proposal;
 }
 
+// Diagnóstico de salud (para verificar conexión MySQL en Hostinger)
+app.get('/health', async (req, res) => {
+  try {
+    const [tables] = await pool.query('SHOW TABLES');
+    res.json({ ok: true, db: 'connected', tables_count: tables.length });
+  } catch (err) {
+    res.status(500).json({ ok: false, db: 'error', message: err.message });
+  }
+});
+
 // ============================================================================
 // RUTAS PÚBLICAS
 // ============================================================================
 
-app.get('/', async (req, res) => {
+app.get('/', asyncHandler(async (req, res) => {
   try {
     const [articles] = await pool.query(
       "SELECT * FROM articles WHERE status = 'published' ORDER BY published_at DESC, created_at DESC LIMIT 6"
@@ -149,50 +182,46 @@ app.get('/', async (req, res) => {
   } catch (err) {
     res.render('home', { articles: [], magazines: [], products: [] });
   }
-});
+}));
 
 app.get('/quienes-somos', (req, res) => {
   res.render('quienes-somos', { pageTitle: 'Quiénes Somos | Tribalia Soluciones Informáticas S.A.S.' });
 });
 
-app.get('/noticias/:slug', async (req, res) => {
+app.get('/noticias/:slug', asyncHandler(async (req, res) => {
   const [rows] = await pool.query("SELECT * FROM articles WHERE slug = ? AND status = 'published'", [
     req.params.slug
   ]);
   if (rows.length === 0) return res.status(404).send('Noticia no encontrada');
   res.render('article', { article: rows[0], pageTitle: `${rows[0].title} | Noticias Tribalia` });
-});
+}));
 
-app.get('/revista/:id', async (req, res) => {
+app.get('/revista/:id', asyncHandler(async (req, res) => {
   const [rows] = await pool.query('SELECT * FROM magazines WHERE id = ? AND is_published = 1', [
     req.params.id
   ]);
   if (rows.length === 0) return res.status(404).send('Revista no encontrada');
   res.render('revista', { magazine: rows[0], pageTitle: `${rows[0].title} | Revista Tribalia` });
-});
+}));
 
-app.post('/api/contact/', async (req, res) => {
-  try {
-    const { name, company, phone, email, product_interest, message } = req.body;
-    if (!name || !email || !message) {
-      return res.status(400).json({ status: 'error', message: 'Por favor completa nombre, correo y mensaje.' });
-    }
-    await pool.query(
-      `INSERT INTO contact_messages (id, name, company, phone, email, product_interest, message, status)
-       VALUES (?, ?, ?, ?, ?, ?, ?, 'nuevo')`,
-      [uuidv4(), name.trim(), (company || '').trim(), (phone || '').trim(), email.trim(), (product_interest || 'General').trim(), message.trim()]
-    );
-    res.json({ status: 'success', message: '¡Mensaje recibido! Nuestro equipo comercial se pondrá en contacto pronto.' });
-  } catch (err) {
-    res.status(500).json({ status: 'error', message: 'No se pudo guardar el mensaje.' });
+app.post('/api/contact/', asyncHandler(async (req, res) => {
+  const { name, company, phone, email, product_interest, message } = req.body;
+  if (!name || !email || !message) {
+    return res.status(400).json({ status: 'error', message: 'Por favor completa nombre, correo y mensaje.' });
   }
-});
+  await pool.query(
+    `INSERT INTO contact_messages (id, name, company, phone, email, product_interest, message, status)
+     VALUES (?, ?, ?, ?, ?, ?, ?, 'nuevo')`,
+    [uuidv4(), name.trim(), (company || '').trim(), (phone || '').trim(), email.trim(), (product_interest || 'General').trim(), message.trim()]
+  );
+  res.json({ status: 'success', message: '¡Mensaje recibido! Nuestro equipo comercial se pondrá en contacto pronto.' });
+}));
 
 // ============================================================================
 // TIENDA Y PROPUESTAS COMERCIALES
 // ============================================================================
 
-app.get('/tienda', async (req, res) => {
+app.get('/tienda', asyncHandler(async (req, res) => {
   const [products] = await pool.query('SELECT * FROM products WHERE is_active = 1 ORDER BY display_order ASC');
   const [plans] = await pool.query('SELECT * FROM license_types WHERE is_active = 1');
 
@@ -210,9 +239,9 @@ app.get('/tienda', async (req, res) => {
     selectedPlanId: req.query.plan || '',
     checkoutResult: null
   });
-});
+}));
 
-app.post('/tienda', async (req, res) => {
+app.post('/tienda', asyncHandler(async (req, res) => {
   const { customer_email, plan_id, proposal_code, payment_gateway } = req.body;
   let checkoutResult = null;
   const gateway = payment_gateway || 'Wompi';
@@ -257,9 +286,9 @@ app.post('/tienda', async (req, res) => {
     selectedPlanId: '',
     checkoutResult
   });
-});
+}));
 
-app.get('/propuesta/:code', async (req, res) => {
+app.get('/propuesta/:code', asyncHandler(async (req, res) => {
   const proposal = await getProposalWithItems(req.params.code);
   if (!proposal) return res.status(404).send('Propuesta comercial no encontrada');
 
@@ -278,7 +307,7 @@ app.get('/propuesta/:code', async (req, res) => {
     bridgeColor,
     checkoutUrl: `/tienda?proposal=${encodeURIComponent(proposal.code)}`
   });
-});
+}));
 
 // ============================================================================
 // AUTENTICACIÓN, ÁREA COMERCIAL Y PANEL ADMIN
@@ -288,21 +317,31 @@ app.get('/login', (req, res) => {
   res.render('login', { error: null, nextUrl: req.query.next || '/admin', pageTitle: 'Iniciar Sesión | Tribalia' });
 });
 
-app.post('/login', async (req, res) => {
+app.post('/login', asyncHandler(async (req, res) => {
   const { username, password, next } = req.body;
-  const [rows] = await pool.query('SELECT * FROM users WHERE username = ? AND is_active = 1', [username]);
-  if (rows.length > 0 && (await bcrypt.compare(password, rows[0].password_hash))) {
-    req.session.user = { id: rows[0].id, username: rows[0].username, role: rows[0].role, full_name: rows[0].full_name };
-    return res.redirect(next || '/admin');
+  try {
+    await ensureAdminUser();
+    const [rows] = await pool.query('SELECT * FROM users WHERE username = ? AND is_active = 1', [username]);
+    if (rows.length > 0 && (await bcrypt.compare(password, rows[0].password_hash))) {
+      req.session.user = { id: rows[0].id, username: rows[0].username, role: rows[0].role, full_name: rows[0].full_name };
+      return res.redirect(next || '/admin');
+    }
+    return res.render('login', { error: 'Usuario o contraseña incorrectos.', nextUrl: next || '/admin', pageTitle: 'Iniciar Sesión | Tribalia' });
+  } catch (err) {
+    console.error('Error en /login:', err);
+    return res.render('login', {
+      error: `Error de base de datos: ${err.message}. Verifica las variables DB_HOST, DB_USER, DB_PASSWORD, DB_NAME en Hostinger.`,
+      nextUrl: next || '/admin',
+      pageTitle: 'Iniciar Sesión | Tribalia'
+    });
   }
-  res.render('login', { error: 'Usuario o contraseña incorrectos.', nextUrl: next || '/admin', pageTitle: 'Iniciar Sesión | Tribalia' });
-});
+}));
 
 app.get('/logout', (req, res) => {
   req.session.destroy(() => res.redirect('/login'));
 });
 
-app.get('/comercial', requireAuth, async (req, res) => {
+app.get('/comercial', requireAuth, asyncHandler(async (req, res) => {
   const [plans] = await pool.query(
     `SELECT lt.*, p.name AS product_name FROM license_types lt
      JOIN products p ON p.id = lt.product_id
@@ -324,9 +363,9 @@ app.get('/comercial', requireAuth, async (req, res) => {
     createdProposal: null,
     baseUrl: `${req.protocol}://${req.get('host')}`
   });
-});
+}));
 
-app.post('/comercial/propuesta', requireAuth, async (req, res) => {
+app.post('/comercial/propuesta', requireAuth, asyncHandler(async (req, res) => {
   const { client_name, client_company, client_email, client_phone, discount_percent, valid_until, notes } = req.body;
   let planIds = req.body.plan_ids || [];
   if (!Array.isArray(planIds)) planIds = [planIds];
@@ -374,9 +413,9 @@ app.post('/comercial/propuesta', requireAuth, async (req, res) => {
     createdProposal,
     baseUrl: `${req.protocol}://${req.get('host')}`
   });
-});
+}));
 
-app.post('/comercial/lead', requireAuth, async (req, res) => {
+app.post('/comercial/lead', requireAuth, asyncHandler(async (req, res) => {
   const { lead_id, status, commercial_notes } = req.body;
   if (lead_id && status) {
     await pool.query('UPDATE contact_messages SET status = ?, commercial_notes = ? WHERE id = ?', [
@@ -386,9 +425,9 @@ app.post('/comercial/lead', requireAuth, async (req, res) => {
     ]);
   }
   res.redirect('/comercial');
-});
+}));
 
-app.get('/admin', requireAuth, async (req, res) => {
+app.get('/admin', requireAuth, asyncHandler(async (req, res) => {
   const [articles] = await pool.query('SELECT * FROM articles ORDER BY created_at DESC');
   const [magazines] = await pool.query('SELECT * FROM magazines ORDER BY publish_date DESC, edition_number DESC');
   const [plans] = await pool.query(
@@ -403,9 +442,9 @@ app.get('/admin', requireAuth, async (req, res) => {
     plans,
     notice: req.query.notice || null
   });
-});
+}));
 
-app.post('/admin/news', requireAuth, upload.single('cover_image'), async (req, res) => {
+app.post('/admin/news', requireAuth, upload.single('cover_image'), asyncHandler(async (req, res) => {
   const { title, tag, summary, content } = req.body;
   const coverPath = req.file ? `/uploads/news/${req.file.filename}` : null;
   const slug = `${slugify(title)}-${crypto.randomBytes(2).toString('hex')}`;
@@ -415,12 +454,12 @@ app.post('/admin/news', requireAuth, upload.single('cover_image'), async (req, r
     [uuidv4(), title.trim(), slug, (tag || 'Actualidad Tribalia').trim(), summary || '', content.trim(), coverPath]
   );
   res.redirect('/admin?notice=Noticia+publicada+correctamente');
-});
+}));
 
-app.post('/admin/news/delete', requireAuth, async (req, res) => {
+app.post('/admin/news/delete', requireAuth, asyncHandler(async (req, res) => {
   await pool.query('DELETE FROM articles WHERE id = ?', [req.body.id]);
   res.redirect('/admin?notice=Noticia+eliminada');
-});
+}));
 
 app.post(
   '/admin/magazines',
@@ -430,7 +469,7 @@ app.post(
     { name: 'epub_file', maxCount: 1 },
     { name: 'pdf_file', maxCount: 1 }
   ]),
-  async (req, res) => {
+  asyncHandler(async (req, res) => {
     const { title, edition_number, summary } = req.body;
     const files = req.files || {};
     const coverPath = files.cover_image ? `/uploads/magazines/${files.cover_image[0].filename}` : null;
@@ -443,25 +482,25 @@ app.post(
       [uuidv4(), title.trim(), Number(edition_number || 1), summary || '', coverPath, epubPath, pdfPath]
     );
     res.redirect('/admin?notice=Revista+subida+correctamente');
-  }
+  })
 );
 
-app.post('/admin/magazines/delete', requireAuth, async (req, res) => {
+app.post('/admin/magazines/delete', requireAuth, asyncHandler(async (req, res) => {
   await pool.query('DELETE FROM magazines WHERE id = ?', [req.body.id]);
   res.redirect('/admin?notice=Revista+eliminada');
-});
+}));
 
-app.post('/admin/plans/update', requireAuth, async (req, res) => {
+app.post('/admin/plans/update', requireAuth, asyncHandler(async (req, res) => {
   const { id, price } = req.body;
   await pool.query('UPDATE license_types SET price = ? WHERE id = ?', [Number(price || 0), id]);
   res.redirect('/admin?notice=Precio+actualizado+en+la+tienda');
-});
+}));
 
 // ============================================================================
 // PÁGINA INDIVIDUAL DE CADA PRODUCTO (/:slug)
 // ============================================================================
 
-app.get('/:slug', async (req, res) => {
+app.get('/:slug', asyncHandler(async (req, res) => {
   const [rows] = await pool.query('SELECT * FROM products WHERE slug = ? AND is_active = 1', [req.params.slug]);
   if (rows.length === 0) return res.status(404).send('Página no encontrada');
   const product = rows[0];
@@ -476,6 +515,12 @@ app.get('/:slug', async (req, res) => {
     monthlyPlan,
     annualPlan
   });
+}));
+
+// Manejador global de errores para nunca tumbar el servidor con 503
+app.use((err, req, res, next) => {
+  console.error('Express error:', err);
+  res.status(500).send(`Error interno del servidor: ${err.message}`);
 });
 
 // Iniciar servidor

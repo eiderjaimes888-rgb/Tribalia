@@ -1,5 +1,5 @@
 /**
- * Catálogo oficial bilingüe (ES / EN) de productos Tribalia S.A.S.
+ * Cat\u00e1logo oficial biling\u00fce (ES / EN) de productos Tribalia S.A.S.
  * Colores, descriptores y funcionalidades detalladas del Manual de Marca (Noviembre 2026).
  */
 window.TRIBALIA_PRODUCTS = [
@@ -9,14 +9,14 @@ window.TRIBALIA_PRODUCTS = [
     logo: 'assets/img/logos/tribalia-software-contable.svg',
     name: 'Tribalia Software Contable',
     shortName: 'Software Contable',
-    tagline: 'Núcleo contable nativo con Inteligencia Artificial',
+    tagline: 'N\u00facleo contable nativo con Inteligencia Artificial',
     tagline_en: 'AI-Native Core Accounting Platform',
     description:
-      'Diseñada desde su arquitectura base para operar de manera nativa con Inteligencia Artificial. Importa y procesa facturas electrónicas de la DIAN con aprendizaje contextual privado para causar y contabilizar en segundos.',
+      'Dise\u00f1ada desde su arquitectura base para operar de manera nativa con Inteligencia Artificial. Importa y procesa facturas electr\u00f3nicas de la DIAN con aprendizaje contextual privado para causar y contabilizar en segundos.',
     description_en:
       'Built from the ground up to operate natively with Artificial Intelligence. Imports and processes electronic invoices directly from DIAN with private contextual learning to record and post entries in seconds.',
     fullDescription:
-      'Tribalia Software Contable es la solución central del ecosistema de Tribalia, concebida para transformar y simplificar de raíz la operación diaria de contadores públicos, auditores y departamentos financieros. A diferencia de los sistemas tradicionales a los que se les adapta tecnología de forma superficial, nuestra plataforma fue diseñada desde su arquitectura base para operar de manera nativa con Inteligencia Artificial.',
+      'Tribalia Software Contable es la soluci\u00f3n central del ecosistema de Tribalia, concebida para transformar y simplificar de ra\u00edz la operaci\u00f3n diaria de contadores p\u00fablicos, auditores y departamentos financieros. A diferencia de los sistemas tradicionales a los que se les adapta tecnolog\u00eda de forma superficial, nuestra plataforma fue dise\u00f1ada desde su arquitectura base para operar de manera nativa con Inteligencia Artificial.',
     fullDescription_en:
       'Tribalia Software Contable is the core solution of the Tribalia ecosystem, designed to transform and simplify the daily operations of public accountants, auditors, and finance departments. Unlike legacy systems with superficial add-ons, our platform was built from its core architecture to run natively on Artificial Intelligence.',
     accentColor: '#00A8E8',
@@ -28,9 +28,9 @@ window.TRIBALIA_PRODUCTS = [
     status: 'Core',
     status_en: 'Core',
     highlights: [
-      'Importación directa desde el micrositio DIAN',
-      'Causación autónoma con aprendizaje privado',
-      'Aislamiento y soberanía total de datos'
+      'Importaci\u00f3n directa desde el micrositio DIAN',
+      'Causaci\u00f3n aut\u00f3noma con aprendizaje privado',
+      'Aislamiento y soberan\u00eda total de datos'
     ],
     highlights_en: [
       'Direct import from the DIAN portal',
@@ -39,20 +39,20 @@ window.TRIBALIA_PRODUCTS = [
     ],
     features: [
       {
-        title: 'Importación y lectura directa desde la DIAN',
+        title: 'Importaci\u00f3n y lectura directa desde la DIAN',
         desc: 'Procesa facturas de compra directamente desde los archivos descargados del micrositio de la DIAN ejecutando un aprendizaje continuo y contextual.'
       },
       {
-        title: 'Causación autónoma en segundos',
-        desc: 'Identifica y asocia automáticamente conceptos contables, cuentas y terceros recurrentes para contabilizar nuevas facturas con precisión.'
+        title: 'Causaci\u00f3n aut\u00f3noma en segundos',
+        desc: 'Identifica y asocia autom\u00e1ticamente conceptos contables, cuentas y terceros recurrentes para contabilizar nuevas facturas con precisi\u00f3n.'
       },
       {
-        title: 'Privacidad y soberanía de datos',
-        desc: 'La información financiera y tributaria de cada cliente jamás alimenta modelos públicos: el aprendizaje permanece encapsulado en el entorno privado de cada compañía.'
+        title: 'Privacidad y soberan\u00eda de datos',
+        desc: 'La informaci\u00f3n financiera y tributaria de cada cliente jam\u00e1s alimenta modelos p\u00fablicos: el aprendizaje permanece encapsulado en el entorno privado de cada compa\u00f1\u00eda.'
       },
       {
-        title: 'Control, auditoría y gestión unificada',
-        desc: 'Integra herramientas de control, auditoría y reportes financieros en una sola interfaz intuitiva para liberar tiempo hacia el análisis estratégico.'
+        title: 'Control, auditor\u00eda y gesti\u00f3n unificada',
+        desc: 'Integra herramientas de control, auditor\u00eda y reportes financieros en una sola interfaz intuitiva para liberar tiempo hacia el an\u00e1lisis estrat\u00e9gico.'
       }
     ],
     features_en: [
@@ -66,7 +66,7 @@ window.TRIBALIA_PRODUCTS = [
       },
       {
         title: 'Strict data privacy & sovereignty',
-        desc: 'Client financial and tax data never trains public models: AI learning remains strictly isolated inside each company’s private environment.'
+        desc: 'Client financial and tax data never trains public models: AI learning remains strictly isolated inside each company\u2019s private environment.'
       },
       {
         title: 'Unified control & financial reporting',
@@ -83,11 +83,11 @@ window.TRIBALIA_PRODUCTS = [
     tagline: 'Suite modular de utilidades contables y tributarias con IA',
     tagline_en: 'Modular AI Suite for Accounting & Tax Utilities',
     description:
-      'Automatiza procesos críticos de validación fiscal, descarga masiva DIAN, auditoría de nómina electrónica, conciliación bancaria asistida y proyección de renta, integrándose con cualquier software contable.',
+      'Automatiza procesos cr\u00edticos de validaci\u00f3n fiscal, descarga masiva DIAN, auditor\u00eda de n\u00f3mina electr\u00f3nica, conciliaci\u00f3n bancaria asistida y proyecci\u00f3n de renta, integr\u00e1ndose con cualquier software contable.',
     description_en:
-      'Automates critical tax validation, bulk DIAN invoice downloads, electronic payroll auditing, assisted bank reconciliation, and income tax projection—integrating seamlessly with any accounting software.',
+      'Automates critical tax validation, bulk DIAN invoice downloads, electronic payroll auditing, assisted bank reconciliation, and income tax projection\u2014integrating seamlessly with any accounting software.',
     fullDescription:
-      'Tribalia Complementos es una suite modular de utilidades especializadas diseñada para contadores públicos, auditores y equipos financieros que buscan eliminar la operatividad mecánica y elevar su capacidad de análisis mediante herramientas potenciadas con Inteligencia Artificial. Se integra de forma ágil con cualquier sistema contable del mercado.',
+      'Tribalia Complementos es una suite modular de utilidades especializadas dise\u00f1ada para contadores p\u00fablicos, auditores y equipos financieros que buscan eliminar la operatividad mec\u00e1nica y elevar su capacidad de an\u00e1lisis mediante herramientas potenciadas con Inteligencia Artificial. Se integra de forma \u00e1gil con cualquier sistema contable del mercado.',
     fullDescription_en:
       'Tribalia Complementos is a modular suite of specialized utilities built for public accountants, auditors, and finance teams looking to eliminate manual data entry and boost analytical capacity through AI-powered tools. It integrates smoothly with any accounting system on the market.',
     accentColor: '#008B7A',
@@ -100,8 +100,8 @@ window.TRIBALIA_PRODUCTS = [
     status_en: 'Available',
     highlights: [
       'Descarga masiva de comprobantes DIAN',
-      'Análisis inteligente de retenciones y Nómina',
-      'Conversión de extractos PDF y conciliación'
+      'An\u00e1lisis inteligente de retenciones y N\u00f3mina',
+      'Conversi\u00f3n de extractos PDF y conciliaci\u00f3n'
     ],
     highlights_en: [
       'Bulk DIAN electronic document download',
@@ -111,22 +111,22 @@ window.TRIBALIA_PRODUCTS = [
     features: [
       {
         title: 'Descarga masiva de comprobantes DIAN',
-        desc: 'Obtén en lote facturas electrónicas directamente desde el micrositio DIAN usando códigos CUFE o el archivo Excel de documentos emitidos y recibidos.'
+        desc: 'Obt\u00e9n en lote facturas electr\u00f3nicas directamente desde el micrositio DIAN usando c\u00f3digos CUFE o el archivo Excel de documentos emitidos y recibidos.'
       },
       {
-        title: 'Análisis inteligente de retenciones',
-        desc: 'Evalúa el contenido y contexto de cada factura para recomendar con precisión retenciones en la fuente aplicables (Renta, IVA, ICA).'
+        title: 'An\u00e1lisis inteligente de retenciones',
+        desc: 'Eval\u00faa el contenido y contexto de cada factura para recomendar con precisi\u00f3n retenciones en la fuente aplicables (Renta, IVA, ICA).'
       },
       {
-        title: 'Gestión y auditoría de Nómina Electrónica',
-        desc: 'Consolida la nómina electrónica reportada para cruzarla contra nóminas internas y genera interfaces listas para contabilizar en cualquier software.'
+        title: 'Gesti\u00f3n y auditor\u00eda de N\u00f3mina Electr\u00f3nica',
+        desc: 'Consolida la n\u00f3mina electr\u00f3nica reportada para cruzarla contra n\u00f3minas internas y genera interfaces listas para contabilizar en cualquier software.'
       },
       {
-        title: 'Conversión de extractos y conciliación bancaria',
-        desc: 'Transforma extractos bancarios en PDF a hojas de cálculo Excel estructuradas y ejecuta el cruce inteligente contra el libro auxiliar contable.'
+        title: 'Conversi\u00f3n de extractos y conciliaci\u00f3n bancaria',
+        desc: 'Transforma extractos bancarios en PDF a hojas de c\u00e1lculo Excel estructuradas y ejecuta el cruce inteligente contra el libro auxiliar contable.'
       },
       {
-        title: 'Proyección del Impuesto de Renta',
+        title: 'Proyecci\u00f3n del Impuesto de Renta',
         desc: 'Modela y estima el comportamiento financiero y fiscal proyectando el resultado del ejercicio al cierre para decisiones gerenciales anticipadas.'
       }
     ],
@@ -162,13 +162,13 @@ window.TRIBALIA_PRODUCTS = [
     tagline: 'Control normativo, vencimientos y rentabilidad por cliente',
     tagline_en: 'Regulatory Control, Deadlines & Client Profitability',
     description:
-      'Blinda el cumplimiento legal y tributario con hoja de vida integral por cliente, calendario inteligente por células de trabajo, control de tiempos laborados (Time Tracking) y análisis real de rentabilidad.',
+      'Blinda el cumplimiento legal y tributario con hoja de vida integral por cliente, calendario inteligente por c\u00e9lulas de trabajo, control de tiempos laborados (Time Tracking) y an\u00e1lisis real de rentabilidad.',
     description_en:
       'Safeguards legal and tax compliance with a comprehensive client profile, smart team-cell deadline calendar, accurate Time Tracking, and real-time client profitability analytics.',
     fullDescription:
-      'Tribalia Compliance es una plataforma integral de control normativo, gestión operativa y rentabilidad diseñada para firmas contables, áreas financieras y equipos empresariales. Transforma el seguimiento disperso de fechas y tareas en un modelo de gobierno operativo predecible, rentable y libre de contingencias.',
+      'Tribalia Compliance es una plataforma integral de control normativo, gesti\u00f3n operativa y rentabilidad dise\u00f1ada para firmas contables, \u00e1reas financieras y equipos empresariales. Transforma el seguimiento disperso de fechas y tareas en un modelo de gobierno operativo predecible, rentable y libre de contingencias.',
     fullDescription_en:
-      'Tribalia Compliance is a comprehensive regulatory control, operations, and profitability platform built for accounting firms, finance departments, and business teams—turning scattered spreadsheets into a predictable, profitable governance model.',
+      'Tribalia Compliance is a comprehensive regulatory control, operations, and profitability platform built for accounting firms, finance departments, and business teams\u2014turning scattered spreadsheets into a predictable, profitable governance model.',
     accentColor: '#D98A2B',
     bridgeColor: '#F4B961',
     subdomain: 'https://compliance.tribalia.com.co',
@@ -190,25 +190,25 @@ window.TRIBALIA_PRODUCTS = [
     features: [
       {
         title: 'Hoja de vida integral del cliente',
-        desc: 'Centraliza el perfil fiscal y corporativo de cada empresa parametrizando sus responsabilidades y obligaciones periódicas.'
+        desc: 'Centraliza el perfil fiscal y corporativo de cada empresa parametrizando sus responsabilidades y obligaciones peri\u00f3dicas.'
       },
       {
         title: 'Calendario inteligente y flujo por equipos',
-        desc: 'Organiza cronogramas asignados por células de trabajo con alertas cuando una actividad está lista para revisión, aprobada o enviada.'
+        desc: 'Organiza cronogramas asignados por c\u00e9lulas de trabajo con alertas cuando una actividad est\u00e1 lista para revisi\u00f3n, aprobada o enviada.'
       },
       {
         title: 'Control de tiempos laborados (Time Tracking)',
-        desc: 'Registra con precisión las horas invertidas por cada colaborador en las actividades de cada cuenta para medir carga operativa real.'
+        desc: 'Registra con precisi\u00f3n las horas invertidas por cada colaborador en las actividades de cada cuenta para medir carga operativa real.'
       },
       {
-        title: 'Análisis de rentabilidad y margen por cliente',
-        desc: 'Cruza automáticamente el costo de mano de obra invertida frente a los honorarios de cada cliente para calcular el margen real de utilidad.'
+        title: 'An\u00e1lisis de rentabilidad y margen por cliente',
+        desc: 'Cruza autom\u00e1ticamente el costo de mano de obra invertida frente a los honorarios de cada cliente para calcular el margen real de utilidad.'
       }
     ],
     features_en: [
       {
         title: 'Comprehensive client profile',
-        desc: 'Centralizes each company’s tax and corporate profile, configuring specific responsibilities and recurring obligations.'
+        desc: 'Centralizes each company\u2019s tax and corporate profile, configuring specific responsibilities and recurring obligations.'
       },
       {
         title: 'Smart team-cell calendar & workflow',
@@ -228,18 +228,18 @@ window.TRIBALIA_PRODUCTS = [
     id: 'exogena',
     slug: 'tribalia-exogena',
     logo: 'assets/img/logos/tribalia-exogena.svg',
-    name: 'Tribalia Exógena',
-    shortName: 'Exógena',
-    tagline: 'Medios Magnéticos Nacionales (DIAN) y Distritales',
+    name: 'Tribalia Ex\u00f3gena',
+    shortName: 'Ex\u00f3gena',
+    tagline: 'Medios Magn\u00e9ticos Nacionales (DIAN) y Distritales',
     tagline_en: 'Automated DIAN & Municipal Tax Information Reporting',
     description:
-      'Automatiza, estructura y valida los reportes de Información Exógena Nacional (DIAN) y Distrital de Bogotá, verificando conceptos, cuantías mínimas, topes y terceros antes de generar los XML oficiales.',
+      'Automatiza, estructura y valida los reportes de Informaci\u00f3n Ex\u00f3gena Nacional (DIAN) y Distrital de Bogot\u00e1, verificando conceptos, cuant\u00edas m\u00ednimas, topes y terceros antes de generar los XML oficiales.',
     description_en:
-      'Automates, structures, and validates DIAN National and Bogotá District Magnetic Media tax reports—verifying concepts, thresholds, and third-party data before generating official XML files.',
+      'Automates, structures, and validates DIAN National and Bogot\u00e1 District Magnetic Media tax reports\u2014verifying concepts, thresholds, and third-party data before generating official XML files.',
     fullDescription:
-      'Tribalia Exógena es una solución especializada diseñada para automatizar, estructurar y blindar la elaboración y validación de los reportes de Información Exógena (Medios Magnéticos). Transforma grandes volúmenes de registros contables en formatos listos para transmisión oficial.',
+      'Tribalia Ex\u00f3gena es una soluci\u00f3n especializada dise\u00f1ada para automatizar, estructurar y blindar la elaboraci\u00f3n y validaci\u00f3n de los reportes de Informaci\u00f3n Ex\u00f3gena (Medios Magn\u00e9ticos). Transforma grandes vol\u00famenes de registros contables en formatos listos para transmisi\u00f3n oficial.',
     fullDescription_en:
-      'Tribalia Exógena is a specialized solution designed to automate, structure, and safeguard Exógena (Magnetic Media) tax reporting—transforming large volumes of accounting entries into official, submission-ready formats.',
+      'Tribalia Ex\u00f3gena is a specialized solution designed to automate, structure, and safeguard Ex\u00f3gena (Magnetic Media) tax reporting\u2014transforming large volumes of accounting entries into official, submission-ready formats.',
     accentColor: '#9A4896',
     bridgeColor: '#6B328A',
     subdomain: 'https://exogena.tribalia.com.co',
@@ -249,27 +249,27 @@ window.TRIBALIA_PRODUCTS = [
     status: 'Disponible',
     status_en: 'Available',
     highlights: [
-      'Armado automatizado según resoluciones vigentes',
-      'Cobertura DIAN Nacional y Bogotá',
-      'Auditoría previa antes de generar XML'
+      'Armado automatizado seg\u00fan resoluciones vigentes',
+      'Cobertura DIAN Nacional y Bogot\u00e1',
+      'Auditor\u00eda previa antes de generar XML'
     ],
     highlights_en: [
       'Automated format assembly under current rules',
-      'National DIAN and Bogotá coverage',
+      'National DIAN and Bogot\u00e1 coverage',
       'Pre-audit checks before XML generation'
     ],
     features: [
       {
         title: 'Armado automatizado de formatos',
-        desc: 'Clasifica y agrupa la información contable según las resoluciones vigentes, reduciendo drásticamente las horas en cruces y hojas de cálculo.'
+        desc: 'Clasifica y agrupa la informaci\u00f3n contable seg\u00fan las resoluciones vigentes, reduciendo dr\u00e1sticamente las horas en cruces y hojas de c\u00e1lculo.'
       },
       {
-        title: 'Cobertura nacional y territorial en expansión',
-        desc: 'Operación integral sobre Exógena Nacional (DIAN) y Distrital de Bogotá, con evolución continua hacia nuevas jurisdicciones municipales.'
+        title: 'Cobertura nacional y territorial en expansi\u00f3n',
+        desc: 'Operaci\u00f3n integral sobre Ex\u00f3gena Nacional (DIAN) y Distrital de Bogot\u00e1, con evoluci\u00f3n continua hacia nuevas jurisdicciones municipales.'
       },
       {
         title: 'Control preventivo y trazabilidad',
-        desc: 'Facilita la auditoría previa de saldos, cuantías mínimas, topes, retenciones y bases gravables antes de generar los XML oficiales.'
+        desc: 'Facilita la auditor\u00eda previa de saldos, cuant\u00edas m\u00ednimas, topes, retenciones y bases gravables antes de generar los XML oficiales.'
       }
     ],
     features_en: [
@@ -279,7 +279,7 @@ window.TRIBALIA_PRODUCTS = [
       },
       {
         title: 'National & municipal coverage',
-        desc: 'Full support for DIAN National and Bogotá District reporting, with scalable architecture for additional municipalities.'
+        desc: 'Full support for DIAN National and Bogot\u00e1 District reporting, with scalable architecture for additional municipalities.'
       },
       {
         title: 'Preventive audit & traceability',
@@ -293,16 +293,16 @@ window.TRIBALIA_PRODUCTS = [
     logo: 'assets/img/logos/tribalia-rentas-naturales.svg',
     name: 'Tribalia Rentas Naturales',
     shortName: 'Rentas Naturales',
-    tagline: 'Declaración de Renta de Personas Naturales (210 / 110)',
+    tagline: 'Declaraci\u00f3n de Renta de Personas Naturales (210 / 110)',
     tagline_en: 'Individual Income Tax Return Preparation (Forms 210 / 110)',
     description:
-      'Arquitectura dual con Modo Asistido para contribuyentes y Modo Despacho para contadores. Carga directa de Exógena DIAN, asistente conversacional con IA, estados financieros y conciliación patrimonial.',
+      'Arquitectura dual con Modo Asistido para contribuyentes y Modo Despacho para contadores. Carga directa de Ex\u00f3gena DIAN, asistente conversacional con IA, estados financieros y conciliaci\u00f3n patrimonial.',
     description_en:
-      'Dual architecture featuring Assisted Mode for individuals and Firm Mode for CPAs. Direct DIAN Exógena upload, conversational AI tax assistant, financial statements, and net worth reconciliation.',
+      'Dual architecture featuring Assisted Mode for individuals and Firm Mode for CPAs. Direct DIAN Ex\u00f3gena upload, conversational AI tax assistant, financial statements, and net worth reconciliation.',
     fullDescription:
-      'Tribalia Rentas Naturales es una aplicación web especializada en la elaboración, depuración y auditoría de la Declaración de Renta de Personas Naturales en Colombia. Integra la carga directa de Información Exógena de la DIAN y un asistente conversacional con Inteligencia Artificial.',
+      'Tribalia Rentas Naturales es una aplicaci\u00f3n web especializada en la elaboraci\u00f3n, depuraci\u00f3n y auditor\u00eda de la Declaraci\u00f3n de Renta de Personas Naturales en Colombia. Integra la carga directa de Informaci\u00f3n Ex\u00f3gena de la DIAN y un asistente conversacional con Inteligencia Artificial.',
     fullDescription_en:
-      'Tribalia Rentas Naturales is a web application specialized in preparing, auditing, and filing Individual Income Tax Returns in Colombia—combining direct DIAN Exógena import with a conversational AI tax assistant.',
+      'Tribalia Rentas Naturales is a web application specialized in preparing, auditing, and filing Individual Income Tax Returns in Colombia\u2014combining direct DIAN Ex\u00f3gena import with a conversational AI tax assistant.',
     accentColor: '#559646',
     bridgeColor: '#C86432',
     subdomain: 'https://rentas.tribalia.com.co',
@@ -324,25 +324,25 @@ window.TRIBALIA_PRODUCTS = [
     features: [
       {
         title: 'Modo Asistido (Contribuyentes)',
-        desc: 'Guía paso a paso mediante preguntas sencillas y validaciones automáticas, traduciendo la exógena en una declaración clara y sin tecnicismos.'
+        desc: 'Gu\u00eda paso a paso mediante preguntas sencillas y validaciones autom\u00e1ticas, traduciendo la ex\u00f3gena en una declaraci\u00f3n clara y sin tecnicismos.'
       },
       {
         title: 'Modo Despacho (Contadores y firmas)',
-        desc: 'Entorno ágil de alto rendimiento para liquidar múltiples declaraciones, comparar frente al año anterior y auditar partidas con control técnico.'
+        desc: 'Entorno \u00e1gil de alto rendimiento para liquidar m\u00faltiples declaraciones, comparar frente al a\u00f1o anterior y auditar partidas con control t\u00e9cnico.'
       },
       {
         title: 'Borrador oficial y anexos normativos',
-        desc: 'Genera valores listos para formularios 210 y 110 junto con anexos explicativos renglón a renglón con sustento legal y tributario.'
+        desc: 'Genera valores listos para formularios 210 y 110 junto con anexos explicativos rengl\u00f3n a rengl\u00f3n con sustento legal y tributario.'
       },
       {
-        title: 'Estados financieros y conciliación patrimonial',
-        desc: 'Generación automática de Estado de Situación Financiera, Estado de Resultados, cruce Exógena y Conciliación del Incremento Patrimonial.'
+        title: 'Estados financieros y conciliaci\u00f3n patrimonial',
+        desc: 'Generaci\u00f3n autom\u00e1tica de Estado de Situaci\u00f3n Financiera, Estado de Resultados, cruce Ex\u00f3gena y Conciliaci\u00f3n del Incremento Patrimonial.'
       }
     ],
     features_en: [
       {
         title: 'Assisted Mode (Taxpayers)',
-        desc: 'Step-by-step guidance with plain questions and automatic checks that translate DIAN Exógena into an accurate tax return.'
+        desc: 'Step-by-step guidance with plain questions and automatic checks that translate DIAN Ex\u00f3gena into an accurate tax return.'
       },
       {
         title: 'Firm Mode (CPAs & Tax Firms)',
@@ -354,7 +354,7 @@ window.TRIBALIA_PRODUCTS = [
       },
       {
         title: 'Financial statements & net worth reconciliation',
-        desc: 'Automatically builds Balance Sheet, Income Statement, Exógena cross-checks, and Net Worth Increase Reconciliation.'
+        desc: 'Automatically builds Balance Sheet, Income Statement, Ex\u00f3gena cross-checks, and Net Worth Increase Reconciliation.'
       }
     ]
   },
@@ -367,11 +367,11 @@ window.TRIBALIA_PRODUCTS = [
     tagline: 'Registro multimodal por voz, chat y foto en tiempo real',
     tagline_en: 'Real-Time Voice, Chat & Photo Expense Capture',
     description:
-      'Elimina soportes extraviados y desorden operativo permitiendo a tus colaboradores dictar pagos por nota de voz o chat y adjuntar fotografías de recibos al instante, consolidando informes listos para contabilidad.',
+      'Elimina soportes extraviados y desorden operativo permitiendo a tus colaboradores dictar pagos por nota de voz o chat y adjuntar fotograf\u00edas de recibos al instante, consolidando informes listos para contabilidad.',
     description_en:
       'Eliminates lost receipts and operational friction by letting staff log payments via voice notes or chat and snap receipt photos on the spot, consolidating audit-ready accounting reports.',
     fullDescription:
-      'Tribalia Egresos resuelve uno de los mayores retos operativos de las organizaciones: el control, registro y trazabilidad del uso de recursos financieros en tiempo real. Elimina la pérdida de información y los soportes extraviados desde el instante en que ocurre el gasto.',
+      'Tribalia Egresos resuelve uno de los mayores retos operativos de las organizaciones: el control, registro y trazabilidad del uso de recursos financieros en tiempo real. Elimina la p\u00e9rdida de informaci\u00f3n y los soportes extraviados desde el instante en que ocurre el gasto.',
     fullDescription_en:
       'Tribalia Egresos solves one of the biggest operational challenges in organizations: real-time control, logging, and traceability of cash disbursements from the exact moment an expense occurs.',
     accentColor: '#149CB8',
@@ -383,9 +383,9 @@ window.TRIBALIA_PRODUCTS = [
     status: 'Disponible',
     status_en: 'Available',
     highlights: [
-      'Registro rápido por voz y chat asistido',
-      'Digitalización instantánea desde móvil',
-      'Puente directo hacia causación contable'
+      'Registro r\u00e1pido por voz y chat asistido',
+      'Digitalizaci\u00f3n instant\u00e1nea desde m\u00f3vil',
+      'Puente directo hacia causaci\u00f3n contable'
     ],
     highlights_en: [
       'Fast voice & AI-chat expense logging',
@@ -398,8 +398,8 @@ window.TRIBALIA_PRODUCTS = [
         desc: 'Los colaboradores dictan por nota de voz o chat el beneficiario, monto, concepto y fecha, transformando instrucciones cotidianas en registros estructurados.'
       },
       {
-        title: 'Digitalización instantánea de soportes',
-        desc: 'Adjunta fotografías de recibos, facturas o comprobantes directamente desde cualquier dispositivo móvil vinculando la evidencia física al movimiento.'
+        title: 'Digitalizaci\u00f3n instant\u00e1nea de soportes',
+        desc: 'Adjunta fotograf\u00edas de recibos, facturas o comprobantes directamente desde cualquier dispositivo m\u00f3vil vinculando la evidencia f\u00edsica al movimiento.'
       },
       {
         title: 'Trazabilidad y puente con contabilidad',
@@ -430,13 +430,13 @@ window.TRIBALIA_PRODUCTS = [
     tagline: 'Control tributario de anticipos y cajas menores',
     tagline_en: 'Tax-Compliant Advance & Petty Cash Management',
     description:
-      'Legalización de gastos en tiempo real con validación automática de facturas electrónicas y alertas para emisión oportuna del Documento Soporte Electrónico con No Obligados a Facturar.',
+      'Legalizaci\u00f3n de gastos en tiempo real con validaci\u00f3n autom\u00e1tica de facturas electr\u00f3nicas y alertas para emisi\u00f3n oportuna del Documento Soporte Electr\u00f3nico con No Obligados a Facturar.',
     description_en:
       'Real-time expense legalization with automatic electronic invoice verification and instant alerts to issue Electronic Support Documents for non-invoicing vendors.',
     fullDescription:
-      'Tribalia Legalizaciones es una aplicación especializada para empresas que gestionan anticipos a empleados y fondos de caja menor. Automatiza el control documental mediante un motor de validación tributaria inteligente que blinda la deducibilidad fiscal de cada gasto.',
+      'Tribalia Legalizaciones es una aplicaci\u00f3n especializada para empresas que gestionan anticipos a empleados y fondos de caja menor. Automatiza el control documental mediante un motor de validaci\u00f3n tributaria inteligente que blinda la deducibilidad fiscal de cada gasto.',
     fullDescription_en:
-      'Tribalia Legalizaciones is built for companies managing employee advances and petty cash funds—automating document verification through a smart tax validation engine that protects expense deductibility.',
+      'Tribalia Legalizaciones is built for companies managing employee advances and petty cash funds\u2014automating document verification through a smart tax validation engine that protects expense deductibility.',
     accentColor: '#BA8E36',
     bridgeColor: '#7D6B46',
     subdomain: 'https://legalizaciones.tribalia.com.co',
@@ -446,7 +446,7 @@ window.TRIBALIA_PRODUCTS = [
     status: 'Disponible',
     status_en: 'Available',
     highlights: [
-      'Validación automática de facturas electrónicas',
+      'Validaci\u00f3n autom\u00e1tica de facturas electr\u00f3nicas',
       'Alertas de Documento Soporte (No Obligados)',
       'Control de saldos por colaborador'
     ],
@@ -457,12 +457,12 @@ window.TRIBALIA_PRODUCTS = [
     ],
     features: [
       {
-        title: 'Verificación automática de documentos electrónicos',
-        desc: 'Valida de forma autónoma la autenticidad, vigencia y validez legal de las facturas electrónicas adjuntadas ante la normativa tributaria.'
+        title: 'Verificaci\u00f3n autom\u00e1tica de documentos electr\u00f3nicos',
+        desc: 'Valida de forma aut\u00f3noma la autenticidad, vigencia y validez legal de las facturas electr\u00f3nicas adjuntadas ante la normativa tributaria.'
       },
       {
-        title: 'Alertas para gestión de no obligados a facturar',
-        desc: 'Notifica de inmediato al equipo administrativo cuando un soporte es físico o de no obligado, asegurando la emisión del Documento Soporte Electrónico.'
+        title: 'Alertas para gesti\u00f3n de no obligados a facturar',
+        desc: 'Notifica de inmediato al equipo administrativo cuando un soporte es f\u00edsico o de no obligado, asegurando la emisi\u00f3n del Documento Soporte Electr\u00f3nico.'
       },
       {
         title: 'Control integral de anticipos y cajas menores',
@@ -490,14 +490,14 @@ window.TRIBALIA_PRODUCTS = [
     logo: 'assets/img/logos/tribalia-capacitaciones.svg',
     name: 'Tribalia Capacitaciones',
     shortName: 'Capacitaciones',
-    tagline: 'Formación continua y aulas sincrónicas con IA',
+    tagline: 'Formaci\u00f3n continua y aulas sincr\u00f3nicas con IA',
     tagline_en: 'Continuing Education & AI-Powered Live Classrooms',
     description:
-      'Ecosistema de aprendizaje híbrido en tributaria, laboral, NIIF y gestión empresarial. Incluye aulas en vivo con transcripción automática, resúmenes con IA, pódcast, evaluaciones y rutas corporativas.',
+      'Ecosistema de aprendizaje h\u00edbrido en tributaria, laboral, NIIF y gesti\u00f3n empresarial. Incluye aulas en vivo con transcripci\u00f3n autom\u00e1tica, res\u00famenes con IA, p\u00f3dcast, evaluaciones y rutas corporativas.',
     description_en:
       'Hybrid learning ecosystem covering tax, labor law, IFRS, and business management. Features live rooms with auto-transcription, AI executive summaries, podcasts, quizzes, and corporate tracks.',
     fullDescription:
-      'Tribalia Capacitaciones es una plataforma integral de formación continua y educación no formal diseñada para potenciar la actualización profesional en tributaria, derecho laboral, NIIF y gestión empresarial con entornos colaborativos asistidos por Inteligencia Artificial.',
+      'Tribalia Capacitaciones es una plataforma integral de formaci\u00f3n continua y educaci\u00f3n no formal dise\u00f1ada para potenciar la actualizaci\u00f3n profesional en tributaria, derecho laboral, NIIF y gesti\u00f3n empresarial con entornos colaborativos asistidos por Inteligencia Artificial.',
     fullDescription_en:
       'Tribalia Capacitaciones is a comprehensive continuing education platform designed to elevate professional skills in tax, labor law, IFRS, and business management through AI-assisted collaborative environments.',
     accentColor: '#22B560',
@@ -509,9 +509,9 @@ window.TRIBALIA_PRODUCTS = [
     status: 'Disponible',
     status_en: 'Available',
     highlights: [
-      'Rutas asincrónicas públicas y privadas',
-      'Aulas en vivo con transcripción y resumen IA',
-      'Videos, pódcast y aprendizaje gamificado'
+      'Rutas asincr\u00f3nicas p\u00fablicas y privadas',
+      'Aulas en vivo con transcripci\u00f3n y resumen IA',
+      'Videos, p\u00f3dcast y aprendizaje gamificado'
     ],
     highlights_en: [
       'Public & private asynchronous learning paths',
@@ -520,16 +520,16 @@ window.TRIBALIA_PRODUCTS = [
     ],
     features: [
       {
-        title: 'Formación asincrónica y creación de contenidos',
-        desc: 'Acceso permanente a programas de actualización técnica y creación de rutas internas (públicas o privadas) a la medida de cada empresa.'
+        title: 'Formaci\u00f3n asincr\u00f3nica y creaci\u00f3n de contenidos',
+        desc: 'Acceso permanente a programas de actualizaci\u00f3n t\u00e9cnica y creaci\u00f3n de rutas internas (p\u00fablicas o privadas) a la medida de cada empresa.'
       },
       {
-        title: 'Aulas sincrónicas con asistencia de IA',
-        desc: 'Salas de videoconferencia en vivo equipadas con grabación, transcripción automática, notas estructuradas y resúmenes ejecutivos generados por IA.'
+        title: 'Aulas sincr\u00f3nicas con asistencia de IA',
+        desc: 'Salas de videoconferencia en vivo equipadas con grabaci\u00f3n, transcripci\u00f3n autom\u00e1tica, notas estructuradas y res\u00famenes ejecutivos generados por IA.'
       },
       {
-        title: 'Recursos multimodales y aprendizaje didáctico',
-        desc: 'Supera la lectura plana integrando videos explicativos, pódcast, evaluaciones interactivas y dinámicas gamificadas (juegos).'
+        title: 'Recursos multimodales y aprendizaje did\u00e1ctico',
+        desc: 'Supera la lectura plana integrando videos explicativos, p\u00f3dcast, evaluaciones interactivas y din\u00e1micas gamificadas (juegos).'
       }
     ],
     features_en: [
@@ -556,11 +556,11 @@ window.TRIBALIA_PRODUCTS = [
     tagline: 'Videoconferencias ejecutivas seguras sin descargas',
     tagline_en: 'Zero-Download Encrypted Executive Video Meetings',
     description:
-      'Plataforma de asesoría virtual cifrada de extremo a extremo. Tus clientes ingresan con un clic desde el navegador mediante enlace único, sin instalar software ni crear cuentas, ideal para proyectar estados financieros.',
+      'Plataforma de asesor\u00eda virtual cifrada de extremo a extremo. Tus clientes ingresan con un clic desde el navegador mediante enlace \u00fanico, sin instalar software ni crear cuentas, ideal para proyectar estados financieros.',
     description_en:
-      'End-to-end encrypted virtual advisory platform. Clients join with a single click from any browser via a private link—no downloads or accounts required—ideal for presenting financial reports.',
+      'End-to-end encrypted virtual advisory platform. Clients join with a single click from any browser via a private link\u2014no downloads or accounts required\u2014ideal for presenting financial reports.',
     fullDescription:
-      'Tribalia Meeting es una plataforma especializada de videoconferencias y asesoría virtual diseñada para elevar la comunicación entre firmas, consultores y clientes bajo un estándar de accesibilidad inmediata y confidencialidad absoluta.',
+      'Tribalia Meeting es una plataforma especializada de videoconferencias y asesor\u00eda virtual dise\u00f1ada para elevar la comunicaci\u00f3n entre firmas, consultores y clientes bajo un est\u00e1ndar de accesibilidad inmediata y confidencialidad absoluta.',
     fullDescription_en:
       'Tribalia Meeting is a specialized video conferencing and virtual advisory platform built to elevate communication between firms, consultants, and clients with instant browser access and absolute confidentiality.',
     accentColor: '#EC4899',
@@ -572,9 +572,9 @@ window.TRIBALIA_PRODUCTS = [
     status: 'Disponible',
     status_en: 'Available',
     highlights: [
-      'Acceso instantáneo sin descargas ni cuentas',
-      'Enlaces únicos cifrados de extremo a extremo',
-      'Proyección ejecutiva de informes'
+      'Acceso instant\u00e1neo sin descargas ni cuentas',
+      'Enlaces \u00fanicos cifrados de extremo a extremo',
+      'Proyecci\u00f3n ejecutiva de informes'
     ],
     highlights_en: [
       'Instant browser access, no downloads needed',
@@ -583,22 +583,22 @@ window.TRIBALIA_PRODUCTS = [
     ],
     features: [
       {
-        title: 'Acceso sin fricción y seguridad cifrada',
-        desc: 'Conexión directa desde el navegador mediante enlaces privados y cifrados de extremo a extremo enviados al correo, sin descargar software ni crear cuentas.'
+        title: 'Acceso sin fricci\u00f3n y seguridad cifrada',
+        desc: 'Conexi\u00f3n directa desde el navegador mediante enlaces privados y cifrados de extremo a extremo enviados al correo, sin descargar software ni crear cuentas.'
       },
       {
-        title: 'Proyección ejecutiva de informes y documentos',
-        desc: 'Visualización compartida en tiempo real de estados financieros, declaraciones, contratos y presentaciones con máxima nitidez.'
+        title: 'Proyecci\u00f3n ejecutiva de informes y documentos',
+        desc: 'Visualizaci\u00f3n compartida en tiempo real de estados financieros, declaraciones, contratos y presentaciones con m\u00e1xima nitidez.'
       },
       {
-        title: 'Interacción dinámica y resolución de consultas',
-        desc: 'Espacios estructurados para formular preguntas, revisar partidas conjuntamente y brindar acompañamiento cercano al cliente.'
+        title: 'Interacci\u00f3n din\u00e1mica y resoluci\u00f3n de consultas',
+        desc: 'Espacios estructurados para formular preguntas, revisar partidas conjuntamente y brindar acompa\u00f1amiento cercano al cliente.'
       }
     ],
     features_en: [
       {
         title: 'Frictionless access & end-to-end encryption',
-        desc: 'Join straight from any browser using unique encrypted links sent via email—no software installs or account sign-ups.'
+        desc: 'Join straight from any browser using unique encrypted links sent via email\u2014no software installs or account sign-ups.'
       },
       {
         title: 'Executive report presentation',
@@ -616,16 +616,16 @@ window.TRIBALIA_PRODUCTS = [
     logo: 'assets/img/logos/tribalia-recursos-humanos.svg',
     name: 'Tribalia Recursos Humanos',
     shortName: 'Recursos Humanos',
-    tagline: 'Gestión documental laboral y seguridad social',
+    tagline: 'Gesti\u00f3n documental laboral y seguridad social',
     tagline_en: 'Labor Document Management & Social Security',
     description:
-      'Centraliza expedientes digitales de colaboradores, contratos, otrosíes y procesos disciplinarios; asiste afiliaciones a EPS, AFP, ARL y Cajas, y genera certificaciones laborales al instante.',
+      'Centraliza expedientes digitales de colaboradores, contratos, otros\u00edes y procesos disciplinarios; asiste afiliaciones a EPS, AFP, ARL y Cajas, y genera certificaciones laborales al instante.',
     description_en:
       'Centralizes employee digital files, contracts, addendums, and HR records; streamlines social security enrollments (EPS, AFP, ARL) and issues employment certificates instantly.',
     fullDescription:
-      'Tribalia Recursos Humanos es una plataforma integral diseñada para centralizar, automatizar y blindar la gestión del talento humano y la administración laboral, eliminando la dispersión de archivos físicos y garantizando trazabilidad completa durante todo el ciclo de vida del colaborador.',
+      'Tribalia Recursos Humanos es una plataforma integral dise\u00f1ada para centralizar, automatizar y blindar la gesti\u00f3n del talento humano y la administraci\u00f3n laboral, eliminando la dispersi\u00f3n de archivos f\u00edsicos y garantizando trazabilidad completa durante todo el ciclo de vida del colaborador.',
     fullDescription_en:
-      'Tribalia Recursos Humanos is an all-in-one platform built to centralize, automate, and safeguard HR and labor administration—eliminating scattered paper files and ensuring full traceability across the employee lifecycle.',
+      'Tribalia Recursos Humanos is an all-in-one platform built to centralize, automate, and safeguard HR and labor administration\u2014eliminating scattered paper files and ensuring full traceability across the employee lifecycle.',
     accentColor: '#F97316',
     bridgeColor: '#0D9488',
     subdomain: 'https://rrhh.tribalia.com.co',
@@ -647,15 +647,15 @@ window.TRIBALIA_PRODUCTS = [
     features: [
       {
         title: 'Expediente digital y repositorio documental',
-        desc: 'Centraliza hoja de vida, contratos laborales, otrosíes, memorandos, llamados de atención, anotaciones disciplinarias y certificaciones.'
+        desc: 'Centraliza hoja de vida, contratos laborales, otros\u00edes, memorandos, llamados de atenci\u00f3n, anotaciones disciplinarias y certificaciones.'
       },
       {
         title: 'Asistencia en afiliaciones a Seguridad Social',
-        desc: 'Guía y agiliza la vinculación y reporte de novedades ante EPS, Fondos de Pensiones (AFP), ARL y Cajas de Compensación Familiar.'
+        desc: 'Gu\u00eda y agiliza la vinculaci\u00f3n y reporte de novedades ante EPS, Fondos de Pensiones (AFP), ARL y Cajas de Compensaci\u00f3n Familiar.'
       },
       {
-        title: 'Generación automatizada de certificaciones',
-        desc: 'Expide de manera instantánea y libre de errores certificaciones laborales, constancias de ingresos y retenciones con base en el contrato vigente.'
+        title: 'Generaci\u00f3n automatizada de certificaciones',
+        desc: 'Expide de manera instant\u00e1nea y libre de errores certificaciones laborales, constancias de ingresos y retenciones con base en el contrato vigente.'
       }
     ],
     features_en: [
