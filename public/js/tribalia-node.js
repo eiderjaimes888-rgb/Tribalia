@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   const products = window.TRIBALIA_PRODUCTS || [];
   let activeIndex = 0;
   let autoplayTimer = null;
@@ -8,48 +8,48 @@
     es: {
       nav_home: 'Inicio',
       nav_products: 'Productos',
-      nav_about: 'QuiÃ©nes Somos',
+      nav_about: 'Quiénes Somos',
       nav_news: 'Noticias',
       nav_magazine: 'Revista',
       nav_store: 'Tienda',
       nav_contact: 'Contacto',
-      btn_access: 'Acceso Aplicaciones â–¾',
-      hero_more_info: 'MÃ¡s informaciÃ³n â†’',
+      btn_access: 'Acceso Aplicaciones ▾',
+      hero_more_info: 'Más información →',
       hero_get_license: 'Adquirir licencia (Mensual / Anual)',
       hero_palette_label: 'Paleta oficial:',
       hero_badge_prefix: 'Ecosistema Tribalia',
       ecosystem_eyebrow: 'Portafolio Oficial',
-      ecosystem_title: 'Ecosistema TecnolÃ³gico Tribalia',
+      ecosystem_title: 'Ecosistema Tecnológico Tribalia',
       ecosystem_subtitle:
-        'Cada soluciÃ³n cuenta con su propia identidad cromÃ¡tica, acceso directo en la nube, pÃ¡gina informativa con demostraciones y licenciamiento mensual o anual.',
-      card_more_info: 'MÃ¡s informaciÃ³n',
+        'Cada solución cuenta con su propia identidad cromática, acceso directo en la nube, página informativa con demostraciones y licenciamiento mensual o anual.',
+      card_more_info: 'Más información',
       card_get_license: 'Adquirir licencia',
       news_eyebrow: 'Actualidad Tribalia',
       news_title: 'Noticias y Novedades Normativas',
       news_subtitle:
-        'Actualizaciones tributarias, lanzamientos del ecosistema Tribalia y guÃ­as prÃ¡cticas para contadores y empresas.',
-      news_empty: 'PrÃ³ximamente publicaremos aquÃ­ las noticias y actualizaciones oficiales de Tribalia.',
-      mag_eyebrow: 'PublicaciÃ³n Especializada',
+        'Actualizaciones tributarias, lanzamientos del ecosistema Tribalia y guías prácticas para contadores y empresas.',
+      news_empty: 'Próximamente publicaremos aquí las noticias y actualizaciones oficiales de Tribalia.',
+      mag_eyebrow: 'Publicación Especializada',
       mag_title: 'Revista Tribalia',
       mag_subtitle:
-        'Ediciones digitales interactivas tipo libro fÃ­sico con cambio de pÃ¡gina animado y descarga directa en PDF.',
-      mag_empty: 'PrÃ³ximamente estarÃ¡ disponible la primera ediciÃ³n interactiva de la Revista Tribalia.',
+        'Ediciones digitales interactivas tipo libro físico con cambio de página animado y descarga directa en PDF.',
+      mag_empty: 'Próximamente estará disponible la primera edición interactiva de la Revista Tribalia.',
       store_badge: 'Licenciamiento Flexible',
       store_title: 'Adquiere tu licencia Mensual o Anual en la Tienda Tribalia',
       store_desc:
         'Activa cualquiera de nuestras 10 soluciones en la nube de forma inmediata con planes flexibles adaptados a contadores independientes, firmas y empresas.',
-      store_btn: 'Ir a la Tienda Tribalia â†’',
+      store_btn: 'Ir a la Tienda Tribalia →',
       contact_eyebrow: 'Hablemos',
       contact_title: 'Contacto Directo Tribalia',
       contact_subtitle:
-        'Â¿Necesitas una demostraciÃ³n personalizada o asesorÃ­a para elegir tu plan? Nuestro equipo estÃ¡ listo para atenderte.',
+        '¿Necesitas una demostración personalizada o asesoría para elegir tu plan? Nuestro equipo está listo para atenderte.',
       contact_channels: 'Canales Oficiales',
-      contact_channels_desc: 'ComunÃ­cate directamente con Tribalia Soluciones InformÃ¡ticas S.A.S.',
+      contact_channels_desc: 'Comunícate directamente con Tribalia Soluciones Informáticas S.A.S.',
       form_name: 'Nombre completo',
       form_company: 'Empresa / Firma',
-      form_email: 'Correo electrÃ³nico',
-      form_phone: 'TelÃ©fono / WhatsApp',
-      form_product: 'AplicaciÃ³n de interÃ©s',
+      form_email: 'Correo electrónico',
+      form_phone: 'Teléfono / WhatsApp',
+      form_product: 'Aplicación de interés',
       form_message: 'Mensaje',
       form_submit: 'Enviar mensaje'
     },
@@ -61,8 +61,8 @@
       nav_magazine: 'Magazine',
       nav_store: 'Store',
       nav_contact: 'Contact',
-      btn_access: 'App Portal â–¾',
-      hero_more_info: 'Learn more â†’',
+      btn_access: 'App Portal ▾',
+      hero_more_info: 'Learn more →',
       hero_get_license: 'Get License (Monthly / Annual)',
       hero_palette_label: 'Official palette:',
       hero_badge_prefix: 'Tribalia Ecosystem',
@@ -86,13 +86,13 @@
       store_title: 'Get your Monthly or Annual license at the Tribalia Store',
       store_desc:
         'Activate any of our 10 cloud solutions instantly with flexible plans tailored for independent CPAs, accounting firms, and enterprises.',
-      store_btn: 'Go to Tribalia Store â†’',
+      store_btn: 'Go to Tribalia Store →',
       contact_eyebrow: 'Get in Touch',
       contact_title: 'Direct Tribalia Contact',
       contact_subtitle:
         'Need a personalized demo or guidance choosing your plan? Our team is ready to help.',
       contact_channels: 'Official Channels',
-      contact_channels_desc: 'Reach out directly to Tribalia Soluciones InformÃ¡ticas S.A.S.',
+      contact_channels_desc: 'Reach out directly to Tribalia Soluciones Informáticas S.A.S.',
       form_name: 'Full name',
       form_company: 'Company / Firm',
       form_email: 'Email address',
@@ -149,7 +149,7 @@
           <li class="dropdown-item">
             <a href="${p.subdomain}" target="_blank" rel="noopener noreferrer">
               <span>${p.shortName}</span>
-              <span style="font-size:0.72rem; color:#64748B;">${p.subdomain.replace('https://', '')} â†—</span>
+              <span style="font-size:0.72rem; color:#64748B;">${p.subdomain.replace('https://', '')} ↗</span>
             </a>
           </li>`
           )
@@ -181,7 +181,7 @@
     heroEl.style.setProperty('--active-accent', product.accentColor);
     heroEl.style.setProperty('--active-bridge', product.bridgeColor);
 
-    if (badgeEl) badgeEl.textContent = `${t.hero_badge_prefix} Â· ${index + 1} / ${products.length}`;
+    if (badgeEl) badgeEl.textContent = `${t.hero_badge_prefix} · ${index + 1} / ${products.length}`;
     if (titleEl) {
       titleEl.textContent = product.name;
       titleEl.classList.remove('animate-swap');
@@ -192,7 +192,7 @@
 
     if (chipsEl) {
       const highlights = getField(product, 'highlights') || [];
-      chipsEl.innerHTML = highlights.map((h) => `<span class="hero-chip">âœ“ ${h}</span>`).join('');
+      chipsEl.innerHTML = highlights.map((h) => `<span class="hero-chip">✓ ${h}</span>`).join('');
     }
 
     if (btnInfo) {
@@ -401,7 +401,7 @@
       } catch (err) {
         feedback.style.display = 'block';
         feedback.style.color = '#DC2626';
-        feedback.textContent = 'Error de conexiÃ³n. Intenta nuevamente.';
+        feedback.textContent = 'Error de conexión. Intenta nuevamente.';
       }
     });
   }
@@ -413,4 +413,3 @@
     initContactForm();
   });
 })();
-
