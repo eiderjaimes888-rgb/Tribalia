@@ -1,0 +1,11 @@
+Options -MultiViews
+RewriteEngine On
+
+# Forzar HTTPS en producción
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Servir archivos HTML sin extensión (ej. /tribalia-complementos -> /tribalia-complementos.html)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]

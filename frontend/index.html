@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JB Consulting & Co SAS & Eleva Cloud</title>
+    <meta name="description" content="Plataforma de consultoría de JB Consulting & Co SAS y soluciones de software contable y tributario Eleva.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="brand-logos">
+                <a href="#" class="logo-jb">JB Consulting & Co</a>
+                <div class="logo-separator"></div>
+                <a href="#software" class="logo-eleva">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.42 0-.83.04-1.24.12A6.5 6.5 0 0 0 2.5 13.5A3.5 3.5 0 0 0 6 17h11.5"/></svg>
+                    Eleva<span>Cloud</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" class="nav-link">Inicio</a></li>
+                <li><a href="#servicios" class="nav-link">Nuestros Servicios</a></li>
+                <li><a href="#software" class="nav-link">Software Eleva</a></li>
+                <li><a href="#editorial" class="nav-link">Noticias y Revista</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <!-- Mobile Only Button -->
+                <li class="mobile-only"><a href="#" onclick="openClientPortal()" class="btn btn-primary" style="margin-top: 20px;">Acceso Clientes</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#" onclick="openClientPortal()" class="btn btn-secondary">Acceso Clientes</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="section-tag">Eficiencia Financiera</span>
+                <h1>JB Consulting & Co y <span class="gradient-text">Eleva Cloud</span></h1>
+                <p>Su alianza estratégica para la automatización contable, gestión exógena y consultoría tributaria de alto nivel. Potenciamos el rendimiento financiero de su organización.</p>
+                <div class="hero-buttons">
+                    <a href="#software" class="btn btn-primary">Adquirir Software</a>
+                    <a href="#servicios" class="btn btn-secondary">Explorar Servicios</a>
+                </div>
+            </div>
+            <div class="hero-mockup-wrapper">
+                <div class="hero-glow-bg"></div>
+                <!-- Mockup representing the visual UI on Desktop and Responsiveness -->
+                <div class="hero-mockup glass-card">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Dashboard Eleva Exógena v1.0</span>
+                        <div style="display:flex; gap: 6px;">
+                            <span style="width: 10px; height: 10px; border-radius:50%; background:#ef4444;"></span>
+                            <span style="width: 10px; height: 10px; border-radius:50%; background:#eab308;"></span>
+                            <span style="width: 10px; height: 10px; border-radius:50%; background:#22c55e;"></span>
+                        </div>
+                    </div>
+                    <div style="height: 140px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap: 12px; background: rgba(255,255,255,0.02); border-radius: 8px; margin-bottom: 15px;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+                        <span style="font-size: 0.9rem; color: var(--text-secondary);">Simulador de Reportes DIAN Activo</span>
+                    </div>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 6px; text-align:center;">
+                            <span style="display:block; font-size: 0.75rem; color: var(--text-muted);">Licencias Activas</span>
+                            <strong style="font-size: 1.1rem; color: var(--secondary);">1,280</strong>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 6px; text-align:center;">
+                            <span style="display:block; font-size: 0.75rem; color: var(--text-muted);">Conciliaciones OK</span>
+                            <strong style="font-size: 1.1rem; color: #22c55e;">99.8%</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (La Firma) -->
+    <section class="services-section" id="servicios">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-tag">Servicios de Consultoría</span>
+                <h2 class="section-title">Respaldando su Crecimiento Tributario</h2>
+            </div>
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card glass-card">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <h3>Contabilidad Integral</h3>
+                    <p>Manejo unificado de cuentas, conciliaciones bancarias complejas y auditoría mensual recurrente bajo normas internacionales (NIIF).</p>
+                    <a href="#contacto" class="service-link">
+                        Solicitar Asesoría
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card glass-card">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <h3>Consultoría Tributaria</h3>
+                    <p>Planeación de impuestos corporativos y estructuración exógena. Evite contingencias legales y optimice sus declaraciones tributarias anuales.</p>
+                    <a href="#contacto" class="service-link">
+                        Solicitar Asesoría
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software Section (E-commerce Cloud Licenses) -->
+    <section class="software-section" id="software">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-tag">Software Eleva</span>
+                <h2 class="section-title">Ecosistema y Módulos Especializados</h2>
+            </div>
+            <div class="software-grid">
+                <div>
+                    <h2>Eleva Exógena y Soluciones Cloud</h2>
+                    <p style="color: var(--text-secondary); margin-top: 16px; margin-bottom: 24px;">Eleva es la suite en la nube diseñada para contadores y firmas de auditoría. Permite consolidar, verificar y estructurar los formatos requeridos por entes regulatorios (DIAN) con total automatización y cero margen de error.</p>
+                    <div class="software-features">
+                        <div class="feature-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Generación automática y validación de formatos exógenos.</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Actualizaciones normativas instantáneas en la nube.</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Generación inmediata de credenciales de acceso.</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pricing tiers -->
+                <div class="pricing-box">
+                    <!-- Monthly plan -->
+                    <div class="glass-card pricing-card" id="tier-monthly">
+                        <div class="pricing-header">
+                            <h4>Plan Mensual</h4>
+                            <span class="badge">Suscripción</span>
+                        </div>
+                        <div class="price">$149,000 <span>/ mes</span></div>
+                        <p style="color: var(--text-secondary); margin: 12px 0 20px;">Acceso completo al módulo Eleva Exógena con actualizaciones.</p>
+                        <button onclick="triggerPurchase('monthly')" class="btn btn-primary" style="width: 100%;">Adquirir Licencia</button>
+                    </div>
+                    <!-- Annual plan -->
+                    <div class="glass-card pricing-card featured" id="tier-annual">
+                        <div class="pricing-header">
+                            <h4>Plan Anual (Ahorro 20%)</h4>
+                            <span class="badge" style="background: var(--primary); color: #fff;">Popular</span>
+                        </div>
+                        <div class="price">$1,430,000 <span>/ año</span></div>
+                        <p style="color: var(--text-secondary); margin: 12px 0 20px;">Soporte prioritario y acceso a todos los módulos adicionales.</p>
+                        <button onclick="triggerPurchase('annual')" class="btn btn-primary" style="width: 100%;">Adquirir Licencia Anual</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial & Magazine Section -->
+    <section class="editorial-section" id="editorial">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-tag">Contenido Editorial</span>
+                <h2 class="section-title">Actualidad Tributaria y Publicaciones</h2>
+            </div>
+            <div class="editorial-layout">
+                <!-- News Feed -->
+                <div class="articles-feed">
+                    <h3>Últimos Artículos</h3>
+                    <!-- Article 1 -->
+                    <div class="article-card">
+                        <div class="article-thumb">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1V17"/></svg>
+                        </div>
+                        <div class="article-info">
+                            <div>
+                                <div class="article-date">Publicado: 24 de Junio, 2026</div>
+                                <h4 class="article-title">Nuevos plazos exógena para personas jurídicas</h4>
+                                <p class="article-excerpt">Conoce el calendario detallado de vencimientos y las modificaciones normativas recientes del año fiscal.</p>
+                            </div>
+                            <a href="#" class="service-link" style="font-size: 0.9rem;">Leer Artículo completo</a>
+                        </div>
+                    </div>
+                    <!-- Article 2 -->
+                    <div class="article-card">
+                        <div class="article-thumb">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1V17"/></svg>
+                        </div>
+                        <div class="article-info">
+                            <div>
+                                <div class="article-date">Programado para: 10 de Julio, 2026</div>
+                                <h4 class="article-title">Planeación tributaria preventiva post-reforma</h4>
+                                <p class="article-excerpt">Pautas esenciales dictadas por nuestros socios directores para minimizar el impuesto de renta legalmente.</p>
+                            </div>
+                            <a href="#" class="service-link" style="font-size: 0.9rem;">Ver Borrador</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Magazine Sidebar -->
+                <div class="magazine-sidebar">
+                    <h3>Revista Corporativa</h3>
+                    <div class="magazine-preview">
+                        <div class="magazine-cover">
+                            <div class="title">JB</div>
+                            <div style="font-size: 0.8rem; font-weight:600; margin-top: 10px;">CONSULTING</div>
+                            <div style="margin-top: auto; font-size: 0.7rem; font-weight:700;">Edición N° 12</div>
+                        </div>
+                        <h4 style="margin-bottom: 8px;">Edición Semestral N° 12</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px;">Análisis profundo de la coyuntura tributaria nacional y auditorías internas automatizadas.</p>
+                        <a href="https://example.com/revistas/edicion-12.pdf" target="_blank" class="btn btn-secondary" style="width: 100%;">Descargar PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Redirect Portal (Access Portal Mock) -->
+    <div class="modal-overlay" id="portalModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Acceso a Clientes</h3>
+                <button onclick="closeClientPortal()" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">Selecciona la plataforma a la que deseas acceder. Serás redirigido automáticamente a la URL segura correspondiente.</p>
+                <div style="display:flex; flex-direction:column; gap: 12px;">
+                    <a href="https://dian.eleva.cloud/login" target="_blank" class="btn btn-primary" style="justify-content: flex-start; gap: 12px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        Plataforma Eleva Exógena
+                    </a>
+                    <a href="https://consulting.eleva.cloud/portal" target="_blank" class="btn btn-secondary" style="justify-content: flex-start; gap: 12px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Portal de Consultas Tributarias
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Purchase Simulation Modal -->
+    <div class="modal-overlay" id="purchaseModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Simulador de Pago</h3>
+                <button onclick="closePurchaseModal()" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <form id="purchaseForm" onsubmit="submitMockPurchase(event)">
+                    <input type="hidden" id="planType" value="">
+                    
+                    <label for="customerEmail">Correo Electrónico del Cliente</label>
+                    <input type="email" id="customerEmail" required placeholder="correo@empresa.com">
+                    
+                    <label for="cardNumber">Número de Tarjeta (Prueba)</label>
+                    <input type="text" id="cardNumber" placeholder="4242 4242 4242 4242" required value="4242 4242 4242 4242">
+                    
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+                        <div>
+                            <label for="cardExpiry">Vencimiento</label>
+                            <input type="text" id="cardExpiry" placeholder="MM/AA" required value="12/29">
+                        </div>
+                        <div>
+                            <label for="cardCvc">CVC</label>
+                            <input type="text" id="cardCvc" placeholder="123" required value="123">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;" id="submitBtn">Simular Pago Exitoso</button>
+                </form>
+
+                <!-- Loading State placeholder -->
+                <div id="loadingState" style="display:none; text-align:center; padding: 20px 0;">
+                    <div style="border: 4px solid rgba(255,255,255,0.1); border-top-color: var(--primary); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 16px;"></div>
+                    <p style="color: var(--text-secondary);">Procesando pasarela de pago y entregando licencias...</p>
+                </div>
+
+                <!-- Licensing Results container -->
+                <div id="resultState" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact & Footer Section -->
+    <section class="contact-section" id="contacto">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <span class="section-tag">Hablemos</span>
+                <h3>Contáctenos</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 30px;">Estamos listos para asistir a su empresa. Deje sus datos y uno de nuestros consultores senior se pondrá en contacto a la brevedad.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-method">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>+57 (601) 555-0192</span>
+                    </div>
+                    <div class="contact-method">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <span>contacto@jbconsulting.co</span>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form glass-card" onsubmit="event.preventDefault(); alert('Mensaje enviado. Nos comunicaremos pronto.'); this.reset();">
+                <div>
+                    <label for="contactName">Nombre</label>
+                    <input type="text" id="contactName" required>
+                </div>
+                <div>
+                    <label for="contactCompany">Empresa</label>
+                    <input type="text" id="contactCompany" required>
+                </div>
+                <div class="full-width">
+                    <label for="contactEmail">Correo de Contacto</label>
+                    <input type="email" id="contactEmail" required>
+                </div>
+                <div class="full-width">
+                    <label for="contactMessage">Mensaje / Requerimiento</label>
+                    <textarea id="contactMessage" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 JB Consulting & Co SAS & Eleva Cloud. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Spin animation keyframes -->
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <script src="app.js"></script>
+</body>
+</html>

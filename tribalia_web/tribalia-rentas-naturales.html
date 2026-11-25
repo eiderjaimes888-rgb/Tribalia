@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tribalia Rentas Naturales | Tribalia</title>
+  <meta name="description" content="Elaboración, depuración y auditoría de Declaración de Renta de Personas Naturales (210 y 110).">
+  <link rel="icon" type="image/svg+xml" href="assets/img/logos/tribalia-favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.4">
+</head>
+<body data-product-id="rentas-naturales">
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo" aria-label="Tribalia Inicio">
+        <img src="assets/img/logos/tribalia-logo.svg" alt="Tribalia" style="height:72px;width:auto;">
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="nav_home">Inicio</a></li>
+        <li class="nav-item has-dropdown">
+          <span class="nav-link" data-i18n="nav_products">Productos <span style="font-size:0.65rem;">▼</span></span>
+          <ul class="dropdown-menu" id="navProductsDropdown"></ul>
+        </li>
+        <li class="nav-item"><a href="quienes-somos.html" class="nav-link" data-i18n="nav_about">Quiénes Somos</a></li>
+        <li class="nav-item"><a href="index.html#noticias" class="nav-link" data-i18n="nav_news">Noticias</a></li>
+        <li class="nav-item"><a href="index.html#revista" class="nav-link" data-i18n="nav_magazine">Revista</a></li>
+        <li class="nav-item"><a href="https://tienda.tribalia.com.co" target="_blank" rel="noopener noreferrer" class="nav-link" data-i18n="nav_store">Tienda</a></li>
+        <li class="nav-item"><a href="index.html#contacto" class="nav-link" data-i18n="nav_contact">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="lang-btn" id="langBtn">EN</button>
+        <div class="nav-item has-dropdown">
+          <button type="button" class="btn btn-primary" style="padding: 9px 16px;" data-i18n="btn_access">Acceso Aplicaciones ▾</button>
+          <ul class="dropdown-menu dropdown-menu--right" id="navAccessDropdown"></ul>
+        </div>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section id="detailHero" class="product-detail-hero">
+    <div class="container">
+      <div style="margin-bottom:20px;position:relative;z-index:2;">
+        <a href="index.html" id="detailBackBtn" class="btn btn-glass" style="padding:8px 16px;font-size:0.84rem;">← Volver al Ecosistema</a>
+      </div>
+      <div class="product-detail-grid">
+        <div>
+          <span id="detailTagline" class="hero-badge"></span>
+          <h1 id="detailTitle" class="hero-title">Tribalia Rentas Naturales</h1>
+          <p id="detailDesc" class="hero-desc"></p>
+          <div class="hero-cta-group">
+            <a href="#" id="detailAccessBtn" target="_blank" rel="noopener noreferrer" class="btn btn-light">Ingresar a la Aplicación ↗</a>
+            <a href="#" id="detailStoreBtn" target="_blank" rel="noopener noreferrer" class="btn btn-glass">Adquirir Licencia (Mensual / Anual)</a>
+          </div>
+        </div>
+        <div class="product-detail-logo-card">
+          <img id="detailLogo" src="" alt="Tribalia Rentas Naturales" style="height:170px;width:100%;object-fit:contain;margin-bottom:14px;">
+          <div>
+            <a href="#" id="detailSubdomainLink" target="_blank" rel="noopener noreferrer" class="hero-product-subdomain"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" id="detailFeatEyebrow">Capacidades Clave</span>
+        <h2 class="section-title" id="detailFeatTitle">¿Qué puedes hacer con Tribalia Rentas Naturales?</h2>
+      </div>
+      <div class="features-detail-grid" id="detailFeaturesGrid"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" id="detailMediaEyebrow">Demostración e Interfaz</span>
+        <h2 class="section-title" id="detailMediaTitle">Conoce Tribalia Rentas Naturales en acción</h2>
+      </div>
+      <div class="media-showcase-grid">
+        <div class="video-wrapper" id="detailVideoBox"></div>
+        <div class="screenshot-placeholder" id="detailScreensBox"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="detailOtherTitle">Explora otras soluciones del Ecosistema Tribalia</h2>
+      </div>
+      <div class="products-grid" id="detailOtherGrid"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top:0;">
+        <img src="assets/img/logos/tribalia-logo-blanco.svg" alt="Tribalia" style="height:40px;width:auto;">
+        <span>© 2026 Tribalia Soluciones Informáticas S.A.S. · www.tribalia.com.co</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js?v=1.4"></script>
+  <script src="assets/js/main.js?v=1.4"></script>
+  <script src="assets/js/product-detail.js?v=1.4"></script>
+</body>
+</html>

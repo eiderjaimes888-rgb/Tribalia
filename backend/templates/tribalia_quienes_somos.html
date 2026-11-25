@@ -1,0 +1,38 @@
+{% extends 'tribalia_base.html' %}
+
+{% block title %}Quiénes Somos | Tribalia Soluciones Informáticas S.A.S.{% endblock %}
+
+{% block content %}
+  <section class="section section--white" style="padding-top:64px;">
+    <div class="container">
+      <div style="margin-bottom:24px;">
+        <a href="{% url 'home' %}" class="btn btn-outline">← Volver al Ecosistema de Aplicaciones</a>
+      </div>
+
+      <div class="section-header" style="margin-bottom:44px;">
+        <span class="section-eyebrow">Nuestra Identidad</span>
+        <h1 class="section-title">Tribalia Soluciones Informáticas S.A.S.</h1>
+        <p class="section-subtitle">Tributo + Aliado + Balance + Tribu: ingeniería de software pensada desde la práctica profesional para transformar la complejidad operativa en eficiencia real.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-story">
+          <h3 style="margin-bottom:14px;">Quiénes Somos</h3>
+          <p><strong>Tribalia Soluciones Informáticas S.A.S. (Tribalia S.A.S.)</strong> es una compañía colombiana de ingeniería, diseño y maquetación de software, especializada en transformar la complejidad operativa en eficiencia real. Nacimos con el propósito de modernizar y potenciar la gestión de contadores públicos, administradores, auditores y de la comunidad empresarial en general.</p>
+          <p>Actualmente contamos con un portafolio consolidado de <strong>10 herramientas tecnológicas propias</strong> en comercialización activa, combinando arquitectura de software intuitiva, rigor técnico y avances en Inteligencia Artificial para automatizar tareas mecánicas y liberar tiempo para el análisis estratégico, el control y la toma de decisiones.</p>
+        </div>
+
+        <div class="mv-stack">
+          <div class="mv-card">
+            <h3>Misión</h3>
+            <p>En Tribalia transformamos la carga operativa en capacidad analítica y decisiones estratégicas. Diseñamos herramientas tecnológicas e integraciones de Inteligencia Artificial orientadas a contadores públicos, auditores, firmas financieras y empresas, simplificando procesos complejos y eliminando tareas mecánicas.</p>
+          </div>
+          <div class="mv-card mv-card--accent">
+            <h3>Visión</h3>
+            <p>Proyectamos consolidarnos como una compañía referente y líder en el mercado colombiano de software contable, tributario y de gestión empresarial, escalando a mediano y largo plazo nuestro ecosistema tecnológico hacia mercados internacionales con rigor técnico e innovación práctica.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

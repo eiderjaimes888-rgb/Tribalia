@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiénes Somos | Tribalia Soluciones Informáticas S.A.S.</title>
+  <meta name="description" content="Conoce la historia, Misión y Visión de Tribalia Soluciones Informáticas S.A.S.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/logos/tribalia-favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.2">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo" aria-label="Tribalia Inicio">
+        <img src="assets/img/logos/tribalia-logo.svg" alt="Tribalia" style="height:72px;width:auto;">
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="nav_home">Inicio</a></li>
+        <li class="nav-item has-dropdown">
+          <span class="nav-link" data-i18n="nav_products">Productos <span style="font-size:0.65rem;">▼</span></span>
+          <ul class="dropdown-menu" id="navProductsDropdown"></ul>
+        </li>
+        <li class="nav-item"><a href="quienes-somos.html" class="nav-link" style="color:var(--cian-cloud);" data-i18n="nav_about">Quiénes Somos</a></li>
+        <li class="nav-item"><a href="index.html#noticias" class="nav-link" data-i18n="nav_news">Noticias</a></li>
+        <li class="nav-item"><a href="index.html#revista" class="nav-link" data-i18n="nav_magazine">Revista</a></li>
+        <li class="nav-item"><a href="https://tienda.tribalia.com.co" target="_blank" rel="noopener noreferrer" class="nav-link" data-i18n="nav_store">Tienda</a></li>
+        <li class="nav-item"><a href="index.html#contacto" class="nav-link" data-i18n="nav_contact">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="lang-btn" id="langBtn">EN</button>
+        <div class="nav-item has-dropdown">
+          <button type="button" class="btn btn-primary" style="padding: 9px 16px;" data-i18n="btn_access">Acceso Aplicaciones ▾</button>
+          <ul class="dropdown-menu dropdown-menu--right" id="navAccessDropdown"></ul>
+        </div>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="section section--white" style="padding-top:64px;">
+    <div class="container">
+      <div style="margin-bottom:24px;">
+        <a href="index.html" class="btn btn-outline" data-i18n="about_back_home">← Volver al Ecosistema de Aplicaciones</a>
+      </div>
+
+      <div class="section-header" style="margin-bottom:44px;">
+        <span class="section-eyebrow" data-i18n="about_eyebrow">Nuestra Identidad</span>
+        <h1 class="section-title" data-i18n="about_title">Tribalia Soluciones Informáticas S.A.S.</h1>
+        <p class="section-subtitle" data-i18n="about_subtitle">Tributo + Aliado + Balance + Tribu: ingeniería de software pensada desde la práctica profesional para transformar la complejidad operativa en eficiencia real.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-story">
+          <h3 style="margin-bottom:14px;" data-i18n="about_who_title">Quiénes Somos</h3>
+          <p data-i18n="about_who_p1">Tribalia Soluciones Informáticas S.A.S. (Tribalia S.A.S.) es una compañía colombiana de ingeniería, diseño y maquetación de software, especializada en transformar la complejidad operativa en eficiencia real. Nacimos con el propósito de modernizar y potenciar la gestión de contadores públicos, administradores, auditores y de la comunidad empresarial en general.</p>
+          <p data-i18n="about_who_p2">Actualmente contamos con un portafolio consolidado de 10 herramientas tecnológicas propias en comercialización activa, combinando arquitectura de software intuitiva, rigor técnico y avances en Inteligencia Artificial para automatizar tareas mecánicas y liberar tiempo para el análisis estratégico, el control y la toma de decisiones.</p>
+        </div>
+
+        <div class="mv-stack">
+          <div class="mv-card">
+            <h3 data-i18n="about_mission_title">Misión</h3>
+            <p data-i18n="about_mission_text">En Tribalia transformamos la carga operativa en capacidad analítica y decisiones estratégicas. Diseñamos herramientas tecnológicas e integraciones de Inteligencia Artificial orientadas a contadores públicos, auditores, firmas financieras y empresas, simplificando procesos complejos y eliminando tareas mecánicas.</p>
+          </div>
+          <div class="mv-card mv-card--accent">
+            <h3 data-i18n="about_vision_title">Visión</h3>
+            <p data-i18n="about_vision_text">Proyectamos consolidarnos como una compañía referente y líder en el mercado colombiano de software contable, tributario y de gestión empresarial, escalando a mediano y largo plazo nuestro ecosistema tecnológico hacia mercados internacionales con rigor técnico e innovación práctica.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top:0;">
+        <span>© 2026 Tribalia Soluciones Informáticas S.A.S.</span>
+        <span>www.tribalia.com.co</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js?v=1.4"></script>
+  <script src="assets/js/main.js?v=1.4"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends 'tribalia_base.html' %}
+
+{% block title %}{{ article.title }} | Noticias Tribalia{% endblock %}
+
+{% block content %}
+  <section class="section section--white" style="padding-top:56px;">
+    <div class="container" style="max-width:860px;">
+      <div style="margin-bottom:24px;">
+        <a href="{% url 'home' %}#noticias" class="btn btn-outline">← Volver a Noticias</a>
+      </div>
+      <span class="section-eyebrow">{{ article.tag }}</span>
+      <h1 class="section-title" style="margin-bottom:10px;">{{ article.title }}</h1>
+      <p style="color:var(--gris-suave);margin-bottom:24px;">Publicado el {{ article.published_at|date:"d M Y" }}</p>
+
+      {% if article.get_cover_url %}
+      <img src="{{ article.get_cover_url }}" alt="{{ article.title }}" style="width:100%;max-height:420px;object-fit:cover;border-radius:18px;margin-bottom:28px;border:1px solid var(--border-light);">
+      {% endif %}
+
+      {% if article.summary %}
+      <p style="font-size:1.12rem;font-weight:600;color:var(--azul-noche);margin-bottom:20px;">{{ article.summary }}</p>
+      {% endif %}
+
+      <div style="font-size:1.02rem;line-height:1.8;white-space:pre-line;">{{ article.content }}</div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'tribalia_base.html' %}
+{% load static %}
+
+{% block title %}{{ product.name }} | Tribalia{% endblock %}
+{% block meta_desc %}{{ product.description }}{% endblock %}
+
+{% block content %}
+  <section class="product-detail-hero" style="--active-accent: {{ product.accent_color }}; --active-bridge: {{ product.bridge_color }};">
+    <div class="container">
+      <div style="margin-bottom:20px;position:relative;z-index:2;">
+        <a href="{% url 'home' %}" class="btn btn-glass" style="padding:8px 16px;font-size:0.84rem;">← Volver al Ecosistema</a>
+      </div>
+      <div class="product-detail-grid">
+        <div>
+          <span class="hero-badge">{{ product.tagline }}</span>
+          <h1 class="hero-title">{{ product.name }}</h1>
+          <p class="hero-desc">{{ product.description }}</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px;">
+            {% if monthly_plan %}
+            <div style="background:rgba(255,255,255,0.14);padding:10px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.22);">
+              <div style="font-size:0.75rem;opacity:0.85;">Plan Mensual</div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.15rem;">${{ monthly_plan.price|floatformat:0 }} COP</div>
+            </div>
+            {% endif %}
+            {% if annual_plan %}
+            <div style="background:rgba(255,255,255,0.14);padding:10px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.22);">
+              <div style="font-size:0.75rem;opacity:0.85;">Plan Anual</div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.15rem;">${{ annual_plan.price|floatformat:0 }} COP</div>
+            </div>
+            {% endif %}
+          </div>
+          <div class="hero-cta-group">
+            {% if product.subdomain_url %}
+            <a href="{{ product.subdomain_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-light">Ingresar a la Aplicación ↗</a>
+            {% endif %}
+            <a href="{% url 'store' %}{% if monthly_plan %}?plan={{ monthly_plan.id }}{% endif %}" class="btn btn-glass">Adquirir Licencia en Tienda →</a>
+          </div>
+        </div>
+        <div class="product-detail-logo-card">
+          <img src="{% static product.logo_path %}" alt="{{ product.name }}" style="height:170px;width:100%;object-fit:contain;margin-bottom:14px;">
+          {% if product.subdomain_url %}
+          <div>
+            <a href="{{ product.subdomain_url }}" target="_blank" rel="noopener noreferrer" class="hero-product-subdomain">{{ product.subdomain_url|cut:"https://" }}</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Capacidades Clave</span>
+        <h2 class="section-title">¿Qué puedes hacer con {{ product.name }}?</h2>
+      </div>
+      <div class="features-detail-grid" id="detailFeaturesGrid" style="--active-accent: {{ product.accent_color }};"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Demostración e Interfaz</span>
+        <h2 class="section-title">Conoce {{ product.name }} en acción</h2>
+      </div>
+      <div class="media-showcase-grid">
+        <div class="video-wrapper">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,0.14);display:grid;place-items:center;font-size:1.6rem;margin-bottom:14px;">▶</div>
+          <h3 style="color:#FFFFFF;margin-bottom:8px;">Video demostrativo en preparación</h3>
+          <p style="color:rgba(255,255,255,0.8);max-width:420px;font-size:0.92rem;">Este espacio está listo para incrustar el video explicativo de {{ product.name }}.</p>
+        </div>
+        <div class="screenshot-placeholder">
+          <span style="font-size:2rem;">🖥️</span>
+          <h4 style="color:var(--azul-noche);">Acceso Directo en la Nube</h4>
+          <p style="font-size:0.88rem;">Adquiere tu suscripción mensual o anual en la Tienda Tribalia para activar tu acceso inmediato.</p>
+          <a href="{% url 'store' %}" class="btn btn-primary" style="padding:9px 18px;font-size:0.84rem;">Ir a la Tienda →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  (function () {
+    const slug = "{{ product.slug }}";
+    const prod = (window.TRIBALIA_PRODUCTS || []).find(p => p.slug === slug);
+    const grid = document.getElementById('detailFeaturesGrid');
+    if (!prod || !grid) return;
+    const lang = localStorage.getItem('tribalia_lang') || 'es';
+    const features = (lang === 'en' && prod.features_en) ? prod.features_en : (prod.features || []);
+    grid.innerHTML = features.map(f => `
+      <article class="feature-detail-card">
+        <h3>${f.title}</h3>
+        <p>${f.desc}</p>
+      </article>
+    `).join('');
+  })();
+</script>
+{% endblock %}

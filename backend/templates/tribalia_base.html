@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Tribalia | Ecosistema de Software Contable y Herramientas con IA{% endblock %}</title>
+  <meta name="description" content="{% block meta_desc %}Tribalia Soluciones Informáticas S.A.S. Software contable con Inteligencia Artificial, herramientas tributarias, nómina, compliance y gestión empresarial.{% endblock %}">
+  <link rel="icon" type="image/svg+xml" href="{% static 'img/logos/tribalia-favicon.svg' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/tribalia.css' %}?v=2.0">
+  {% block extra_head %}{% endblock %}
+</head>
+<body {% block body_attrs %}{% endblock %}>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="{% url 'home' %}" class="brand-logo" aria-label="Tribalia Inicio">
+        <img src="{% static 'img/logos/tribalia-logo.svg' %}" alt="Tribalia" style="height:72px;width:auto;">
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="{% url 'home' %}" class="nav-link" data-i18n="nav_home">Inicio</a></li>
+        <li class="nav-item has-dropdown">
+          <span class="nav-link" data-i18n="nav_products">Productos <span style="font-size:0.65rem;">▼</span></span>
+          <ul class="dropdown-menu" id="navProductsDropdown"></ul>
+        </li>
+        <li class="nav-item"><a href="{% url 'quienes_somos' %}" class="nav-link" data-i18n="nav_about">Quiénes Somos</a></li>
+        <li class="nav-item"><a href="{% url 'home' %}#noticias" class="nav-link" data-i18n="nav_news">Noticias</a></li>
+        <li class="nav-item"><a href="{% url 'home' %}#revista" class="nav-link" data-i18n="nav_magazine">Revista</a></li>
+        <li class="nav-item"><a href="{% url 'store' %}" class="nav-link" data-i18n="nav_store">Tienda</a></li>
+        <li class="nav-item"><a href="{% url 'home' %}#contacto" class="nav-link" data-i18n="nav_contact">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="lang-btn" id="langBtn">EN</button>
+        <div class="nav-item has-dropdown">
+          <button type="button" class="btn btn-primary" style="padding: 9px 16px;" data-i18n="btn_access">Acceso Aplicaciones ▾</button>
+          <ul class="dropdown-menu dropdown-menu--right" id="navAccessDropdown"></ul>
+        </div>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom:14px;">
+            <img src="{% static 'img/logos/tribalia-logo-blanco.svg' %}" alt="Tribalia" style="height:48px;width:auto;">
+          </div>
+          <p style="font-size:0.88rem;max-width:300px;">Tribalia Soluciones Informáticas S.A.S. Software contable, tributario y de gestión empresarial impulsado por Inteligencia Artificial.</p>
+        </div>
+
+        <div>
+          <div class="footer-title">Soluciones Core</div>
+          <ul class="footer-links">
+            <li><a href="/tribalia-software-contable/">Software Contable</a></li>
+            <li><a href="/tribalia-complementos/">Complementos</a></li>
+            <li><a href="/tribalia-compliance/">Compliance</a></li>
+            <li><a href="/tribalia-exogena/">Exógena</a></li>
+            <li><a href="/tribalia-rentas-naturales/">Rentas Naturales</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Operación & Talento</div>
+          <ul class="footer-links">
+            <li><a href="/tribalia-egresos/">Egresos</a></li>
+            <li><a href="/tribalia-legalizaciones/">Legalizaciones</a></li>
+            <li><a href="/tribalia-capacitaciones/">Capacitaciones</a></li>
+            <li><a href="/tribalia-meeting/">Meeting</a></li>
+            <li><a href="/tribalia-recursos-humanos/">Recursos Humanos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Ecosistema</div>
+          <ul class="footer-links">
+            <li><a href="{% url 'store' %}">Tienda de Licencias</a></li>
+            <li><a href="{% url 'commercial_portal' %}">Área Comercial</a></li>
+            <li><a href="/admin/">Administración</a></li>
+            <li><a href="https://instagram.com/tribalia.si" target="_blank" rel="noopener noreferrer">@tribalia.si</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Tribalia Soluciones Informáticas S.A.S. Todos los derechos reservados.</span>
+        <span>www.tribalia.com.co</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/products-data.js' %}?v=2.0"></script>
+  <script src="{% static 'js/tribalia-django.js' %}?v=2.0"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

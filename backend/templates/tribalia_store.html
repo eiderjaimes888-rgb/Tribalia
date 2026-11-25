@@ -1,0 +1,197 @@
+{% extends 'tribalia_base.html' %}
+{% load static %}
+
+{% block title %}Tienda Oficial | Tribalia{% endblock %}
+
+{% block extra_head %}
+<style>
+  .cycle-toggle { display: inline-flex; background: #E2E8F0; border-radius: 999px; padding: 4px; gap: 4px; margin-top: 18px; }
+  .cycle-btn { border: none; background: transparent; padding: 9px 22px; border-radius: 999px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; color: #334155; cursor: pointer; transition: all 0.2s ease; }
+  .cycle-btn.active { background: #0B2853; color: #FFFFFF; box-shadow: 0 4px 12px rgba(11,40,83,0.2); }
+  .price-tag { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.65rem; color: #0B2853; }
+  .price-cycle { font-size: 0.82rem; color: #64748B; font-weight: 600; }
+  .checkout-box { background: #FFFFFF; border: 2px solid #00A8E8; border-radius: 20px; padding: 32px; box-shadow: 0 18px 42px rgba(11,40,83,0.12); margin-bottom: 42px; }
+</style>
+{% endblock %}
+
+{% block content %}
+  <section class="section section--white" style="padding-top:52px;padding-bottom:36px;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:28px;">
+        <span class="section-eyebrow">Tienda Oficial Tribalia</span>
+        <h1 class="section-title">Planes y Suscripciones</h1>
+        <p class="section-subtitle">Elige tu modalidad de suscripción <strong>Mensual</strong> o <strong>Anual</strong> y activa tus herramientas Tribalia en la nube.</p>
+
+        {% if not proposal %}
+        <div class="cycle-toggle" id="cycleToggle">
+          <button type="button" class="cycle-btn active" data-cycle="monthly">Suscripción Mensual</button>
+          <button type="button" class="cycle-btn" data-cycle="annual">Suscripción Anual (Ahorra 2 meses)</button>
+        </div>
+        {% endif %}
+      </div>
+
+      {% if checkout_result %}
+      <div class="checkout-box" style="border-color:#008B7A;background:#ECFDF5;">
+        <h2 style="color:#065F46;margin-bottom:8px;">¡Orden de Pago Generada!</h2>
+        <p style="color:#065F46;">Referencia: <strong>{{ checkout_result.reference }}</strong> · Total: <strong>${{ checkout_result.amount|floatformat:0 }} COP</strong> · Pasarela: <strong>{{ checkout_result.gateway }}</strong></p>
+        <p style="color:#047857;font-size:0.9rem;margin-top:6px;">Hemos registrado tu solicitud para <strong>{{ checkout_result.email }}</strong>. Aquí se conecta el botón de redirección a tu pasarela ({{ checkout_result.gateway }}).</p>
+      </div>
+      {% endif %}
+
+      {% if proposal %}
+      <div class="checkout-box">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:20px;">
+          <div>
+            <span class="product-status" style="background:#DCFCE7;color:#166534;">Propuesta Comercial Aplicada: {{ proposal.code }}</span>
+            <h2 style="margin-top:8px;">Resumen para {{ proposal.client_name }}</h2>
+            {% if proposal.client_company %}<p style="color:#64748B;">{{ proposal.client_company }}</p>{% endif %}
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:0.85rem;color:#64748B;text-decoration:line-through;">Subtotal: ${{ proposal.subtotal|floatformat:0 }} COP</div>
+            <div style="font-size:0.9rem;color:#008B7A;font-weight:700;">Descuento ({{ proposal.discount_percent }}%): -${{ proposal.discount_amount|floatformat:0 }} COP</div>
+            <div class="price-tag" style="color:#00A8E8;">Total: ${{ proposal.total_price|floatformat:0 }} COP</div>
+          </div>
+        </div>
+
+        <ul style="list-style:none;margin-bottom:20px;border-top:1px solid #E2E8F0;padding-top:14px;">
+          {% for item in proposal.items.all %}
+          <li style="display:flex;justify-content:space-between;padding:6px 0;font-size:0.94rem;">
+            <span><strong>{{ item.license_type.product.name }}</strong> ({{ item.license_type.get_billing_cycle_display }}) × {{ item.quantity }}</span>
+            <span>${{ item.line_total|floatformat:0 }} COP</span>
+          </li>
+          {% endfor %}
+        </ul>
+
+        <form method="post" style="display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end;">
+          {% csrf_token %}
+          <input type="hidden" name="proposal_code" value="{{ proposal.code }}">
+          <div class="form-group">
+            <label>Correo para activar licencia</label>
+            <input type="email" name="customer_email" value="{{ proposal.client_email }}" required>
+          </div>
+          <div class="form-group">
+            <label>Medio de pago</label>
+            <select name="payment_gateway">
+              <option value="Wompi">Wompi (PSE / Tarjetas / Nequi)</option>
+              <option value="PayU">PayU Latam</option>
+              <option value="MercadoPago">MercadoPago</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" style="height:44px;">Pagar ${{ proposal.total_price|floatformat:0 }} COP →</button>
+        </form>
+      </div>
+      {% endif %}
+
+      <div id="directCheckoutBox" class="checkout-box" style="display:none;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+          <h3 id="checkoutPlanTitle">Suscripción seleccionada</h3>
+          <button type="button" onclick="document.getElementById('directCheckoutBox').style.display='none'" style="background:none;border:none;font-size:1.2rem;cursor:pointer;">✕</button>
+        </div>
+        <form method="post" style="display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end;">
+          {% csrf_token %}
+          <input type="hidden" name="plan_id" id="checkoutPlanId">
+          <div class="form-group">
+            <label>Correo electrónico del titular</label>
+            <input type="email" name="customer_email" required placeholder="tu@empresa.com">
+          </div>
+          <div class="form-group">
+            <label>Pasarela de Pago</label>
+            <select name="payment_gateway">
+              <option value="Wompi">Wompi (PSE / Tarjetas / Nequi)</option>
+              <option value="PayU">PayU Latam</option>
+              <option value="MercadoPago">MercadoPago</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" style="height:44px;" id="checkoutSubmitBtn">Confirmar y Pagar →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:20px;">
+    <div class="container">
+      <div class="products-grid">
+        {% for row in catalog %}
+        <article class="product-card" style="--card-accent: {{ row.product.accent_color }}">
+          <div>
+            <div class="product-card-top">
+              <img src="{% static row.product.logo_path %}" alt="{{ row.product.name }}" style="height:48px;width:auto;max-width:72%;object-fit:contain;">
+            </div>
+            <h3 style="margin:12px 0 6px;">{{ row.product.name }}</h3>
+            <p style="margin-bottom:16px;">{{ row.product.tagline }}</p>
+
+            {% if row.monthly %}
+            <div class="plan-price-block" data-cycle="monthly">
+              <span class="price-tag">${{ row.monthly.price|floatformat:0 }}</span>
+              <span class="price-cycle">COP / mes</span>
+            </div>
+            {% endif %}
+
+            {% if row.annual %}
+            <div class="plan-price-block" data-cycle="annual" style="display:none;">
+              <span class="price-tag">${{ row.annual.price|floatformat:0 }}</span>
+              <span class="price-cycle">COP / año</span>
+            </div>
+            {% endif %}
+          </div>
+
+          <div class="product-card-actions">
+            <a href="/{{ row.product.slug }}/" class="btn btn-outline">Ver detalle</a>
+            {% if row.monthly %}
+            <button type="button" class="btn btn-primary plan-buy-btn" data-cycle="monthly"
+                    data-plan-id="{{ row.monthly.id }}"
+                    data-plan-label="{{ row.product.name }} — Mensual (${{ row.monthly.price|floatformat:0 }} COP)"
+                    style="background:{{ row.product.accent_color }};box-shadow:none;">
+              Comprar Mensual
+            </button>
+            {% endif %}
+            {% if row.annual %}
+            <button type="button" class="btn btn-primary plan-buy-btn" data-cycle="annual"
+                    data-plan-id="{{ row.annual.id }}"
+                    data-plan-label="{{ row.product.name }} — Anual (${{ row.annual.price|floatformat:0 }} COP)"
+                    style="display:none;background:{{ row.product.accent_color }};box-shadow:none;">
+              Comprar Anual
+            </button>
+            {% endif %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  (function () {
+    const toggle = document.getElementById('cycleToggle');
+    if (toggle) {
+      toggle.addEventListener('click', (e) => {
+        const btn = e.target.closest('.cycle-btn');
+        if (!btn) return;
+        const cycle = btn.dataset.cycle;
+        toggle.querySelectorAll('.cycle-btn').forEach(b => b.classList.toggle('active', b === btn));
+        document.querySelectorAll('.plan-price-block, .plan-buy-btn').forEach(el => {
+          el.style.display = el.dataset.cycle === cycle ? '' : 'none';
+        });
+      });
+    }
+
+    document.querySelectorAll('.plan-buy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const box = document.getElementById('directCheckoutBox');
+        document.getElementById('checkoutPlanId').value = btn.dataset.planId;
+        document.getElementById('checkoutPlanTitle').textContent = btn.dataset.planLabel;
+        box.style.display = 'block';
+        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+
+    const preselected = "{{ selected_plan_id }}";
+    if (preselected) {
+      const targetBtn = document.querySelector(`.plan-buy-btn[data-plan-id="${preselected}"]`);
+      if (targetBtn) targetBtn.click();
+    }
+  })();
+</script>
+{% endblock %}

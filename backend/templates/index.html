@@ -1,0 +1,554 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JBEleva | Software Contable Inteligente y Herramientas con IA para Contadores</title>
+    <meta name="description" content="Optimice su gestión con JBEleva. Software contable inteligente, herramientas con Inteligencia Artificial para contadores (Auditoría de Nómina y Extractor AI) y consultoría contable premium.">
+    <!-- Cache-busting version query string to force browser CSS refresh -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=3.7">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-wrapper" style="width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center;">
+            <div class="brand-logos" style="display: flex; align-items: center; gap: 24px;">
+                <!-- Traced JB Consulting & Co Logo -->
+                <a href="#" class="logo-jb" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                <!-- Original JB Consulting Logo Image -->
+                <a href="#" class="logo-jb" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="{% static 'img/logo_jb.png' %}" alt="JB Consulting & Co S.A.S." style="height: 55px; width: auto;">
+                </a>
+                
+                <div class="logo-separator" style="width: 1px; height: 35px; background: var(--border-color);"></div>
+                
+                <!-- Original Eleva Logo Image -->
+                <a href="#software" class="logo-eleva" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; line-height: 1.1;">
+                    <img src="{% static 'img/logo_eleva.png' %}" alt="Eleva" style="height: 35px; width: auto;">
+                    <span style="font-family:'Outfit', sans-serif; font-weight:800; font-size:1.05rem; color:#0E4294; margin-top: 2px;">Eleva</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-tr="menu_inicio">Inicio</a>
+                </li>
+                <!-- Dropdowns strictly hidden until hovered/clicked -->
+                <li class="nav-item has-dropdown">
+                    <span class="nav-link" data-tr="menu_servicios">Nuestros Servicios <span style="font-size:0.6rem; margin-left:2px;">▼</span></span>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a href="#servicios" data-tr="sub_auditoria_ext">Auditoría Externa</a></li>
+                        <li class="dropdown-item"><a href="#servicios" data-tr="sub_asesoria_trib">Asesoría Tributaria</a></li>
+                        <li class="dropdown-item"><a href="#servicios" data-tr="sub_outsourcing_cont">Outsourcing Contable</a></li>
+                        <li class="dropdown-item"><a href="#servicios" data-tr="sub_outsourcing_nom">Outsourcing de Nómina</a></li>
+                        <li class="dropdown-item"><a href="#servicios" data-tr="sub_revisoria_fisc">Revisoría Fiscal</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <span class="nav-link" data-tr="menu_eleva">Eleva <span style="font-size:0.6rem; margin-left:2px;">▼</span></span>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a href="#software" data-tr="soft_contable">Eleva Software Contable</a></li>
+                        <li class="dropdown-item"><a href="#software" data-tr="soft_complementos">Eleva Complementos</a></li>
+                        <li class="dropdown-item"><a href="#software" data-tr="soft_rentas">Eleva Rentas Naturales</a></li>
+                        <li class="dropdown-item"><a href="#software" data-tr="soft_exogena">Eleva Exógena</a></li>
+                        <li class="dropdown-item"><a href="#software" data-tr="soft_legalizaciones">Eleva Legalizaciones</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="#quienes-somos" class="nav-link" data-tr="menu_quienes">Quiénes Somos</a></li>
+                <li class="nav-item"><a href="#que-hacemos" class="nav-link" data-tr="menu_que">Qué Hacemos</a></li>
+                <li class="nav-item"><a href="#editorial" class="nav-link" data-tr="menu_noticias">Noticias</a></li>
+                <li class="nav-item"><a href="#editorial" class="nav-link" data-tr="menu_revista">Revista</a></li>
+                <li class="nav-item"><a href="#contacto" class="nav-link" data-tr="menu_contacto">Contacto</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">EN</button>
+                
+                <div class="nav-item has-dropdown" style="height: auto;">
+                    <button class="btn btn-secondary" style="padding: 8px 16px;" data-tr="btn_acceso_clientes">Acceso Clientes <span style="font-size:0.6rem; margin-left:2px;">▼</span></button>
+                    <ul class="dropdown-menu" style="right: 0; left: auto; transform: translateY(10px); width: 260px;">
+                        <div class="dropdown-subtitle">Eleva</div>
+                        <li class="dropdown-item"><a href="https://contable.eleva.cloud/login" target="_blank" rel="noopener noreferrer" data-tr="ingreso_contable">Ingreso Eleva Software Contable</a></li>
+                        <li class="dropdown-item"><a href="https://eleva-complementos-231954711496.us-west2.run.app/" target="_blank" rel="noopener noreferrer" data-tr="ingreso_complementos">Ingreso Eleva Complementos</a></li>
+                        <li class="dropdown-item"><a href="https://rentas.eleva.cloud/portal" target="_blank" rel="noopener noreferrer" data-tr="ingreso_rentas">Ingreso Eleva Rentas Naturales</a></li>
+                        <li class="dropdown-item"><a href="https://legalizaciones.eleva.cloud/portal" target="_blank" rel="noopener noreferrer" data-tr="ingreso_legalizaciones">Ingreso Eleva Legalizaciones</a></li>
+                        <li class="dropdown-item" style="border-top: 1px solid var(--border-color); margin-top: 6px; padding-top: 6px;"><a href="#" data-tr="descargas">Centro de descargas</a></li>
+                    </ul>
+                </div>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="section-tag" data-tr="hero_tag">Eficiencia Financiera</span>
+                <h1 data-tr="hero_title">JB Consulting & Co y <span class="gradient-text">Eleva</span></h1>
+                <p data-tr="hero_desc">Su alianza estratégica en consultoría de impuestos, revisoría fiscal, outsourcing integral y el ecosistema inteligente de software financiero Eleva.</p>
+                <div class="hero-buttons">
+                    <a href="#software" class="btn btn-primary" data-tr="btn_licencia">Adquirir Licencia</a>
+                    <a href="#servicios" class="btn btn-secondary" data-tr="btn_explorar">Servicios Outsourcing</a>
+                </div>
+            </div>
+            <div class="hero-mockup-wrapper">
+                <div class="hero-glow-bg"></div>
+                <div class="hero-mockup card">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+                        <span style="font-size: 0.8rem; font-weight:600; color: var(--text-muted);" data-tr="mockup_title">Ecosistema Activo</span>
+                        <div style="display:flex; gap: 6px;">
+                            <span style="width: 10px; height: 10px; border-radius:50%; background:#ef4444;"></span>
+                            <span style="width: 10px; height: 10px; border-radius:50%; background:#eab308;"></span>
+                            <span style="width: 10px; height: 10px; border-radius:50%; background:#22c55e;"></span>
+                        </div>
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap: 8px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between; background: var(--bg-surface); padding: 8px 12px; border-radius: 6px; font-size: 0.8rem;">
+                            <span style="font-weight: 600; color: var(--text-main);">Eleva Software Contable</span>
+                            <span style="color:#3b82f6; font-weight:700; font-size: 0.75rem; letter-spacing: 0.3px;">EN DESARROLLO</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; background: var(--bg-surface); padding: 8px 12px; border-radius: 6px; font-size: 0.8rem;">
+                            <span style="font-weight: 600; color: var(--text-main);">Eleva Complementos</span>
+                            <span style="color:#22c55e; font-weight:700; font-size: 0.75rem; letter-spacing: 0.3px;">ACTIVO</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; background: var(--bg-surface); padding: 8px 12px; border-radius: 6px; font-size: 0.8rem;">
+                            <span style="font-weight: 600; color: var(--text-main);">Eleva Rentas Naturales</span>
+                            <span style="color:#f59e0b; font-weight:700; font-size: 0.75rem; letter-spacing: 0.3px;">EN PRUEBAS</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; background: var(--bg-surface); padding: 8px 12px; border-radius: 6px; font-size: 0.8rem;">
+                            <span style="font-weight: 600; color: var(--text-main);">Eleva Legalizaciones</span>
+                            <span style="color:#3b82f6; font-weight:700; font-size: 0.75rem; letter-spacing: 0.3px;">EN DESARROLLO</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; background: var(--bg-surface); padding: 8px 12px; border-radius: 6px; font-size: 0.8rem;">
+                            <span style="font-weight: 600; color: var(--text-main);">Eleva Exógena</span>
+                            <span style="color:#22c55e; font-weight:700; font-size: 0.75rem; letter-spacing: 0.3px;">ACTIVO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="servicios">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-tag" data-tr="servicios_tag">Servicios de Outsourcing</span>
+                <h2 class="section-title" data-tr="servicios_title">Soluciones de Outsourcing Financiero</h2>
+            </div>
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card card">
+                    <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <h3 data-tr="serv_aud_ext_title">Auditoría Externa</h3>
+                    <p data-tr="serv_aud_ext_desc">Evaluación objetiva y sistemática de sus estados financieros para garantizar transparencia ante terceros y juntas directivas.</p>
+                    <a href="#contacto" class="service-link" data-tr="solicitar_info">Solicitar Información &rarr;</a>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card card">
+                    <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                    <h3 data-tr="serv_ases_trib_title">Asesoría Tributaria</h3>
+                    <p data-tr="serv_ases_trib_desc">Planeación impositiva estructural, conciliación exógena y preparación de requerimientos fiscales para mitigar riesgos DIAN.</p>
+                    <a href="#contacto" class="service-link" data-tr="solicitar_info">Solicitar Información &rarr;</a>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card card">
+                    <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg></div>
+                    <h3 data-tr="serv_out_cont_title">Outsourcing Contable</h3>
+                    <p data-tr="serv_out_cont_desc">Gestión integral de libros, procesamiento de cuentas por pagar/cobrar y generación mensual de reportes bajo normas NIIF.</p>
+                    <a href="#contacto" class="service-link" data-tr="solicitar_info">Solicitar Información &rarr;</a>
+                </div>
+                <!-- Card 4 -->
+                <div class="service-card card">
+                    <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
+                    <h3 data-tr="serv_out_trib_title">Outsourcing Tributario</h3>
+                    <p data-tr="serv_out_trib_desc">Liquidación oportuna de IVA, retención en la fuente, ICA e impuesto de renta corporativo simplificando sus procesos internos.</p>
+                    <a href="#contacto" class="service-link" data-tr="solicitar_info">Solicitar Información &rarr;</a>
+                </div>
+                <!-- Card 5 -->
+                <div class="service-card card">
+                    <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                    <h3 data-tr="serv_out_nom_title">Outsourcing de Nómina</h3>
+                    <p data-tr="serv_out_nom_desc">Administración de personal, cálculo de seguridad social, prestaciones y emisión del documento de nómina electrónica.</p>
+                    <a href="#contacto" class="service-link" data-tr="solicitar_info">Solicitar Información &rarr;</a>
+                </div>
+                <!-- Card 6 -->
+                <div class="service-card card">
+                    <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <h3 data-tr="serv_rev_fisc_title">Revisoría Fiscal</h3>
+                    <p data-tr="serv_rev_fisc_desc">Vigilancia integral e independiente del cumplimiento legal y estatutario de su empresa, dictaminando estados financieros.</p>
+                    <a href="#contacto" class="service-link" data-tr="solicitar_info">Solicitar Información &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software Section (5 Modules Layout) -->
+    <section class="software-section" id="software">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-tag" data-tr="soft_tag">Herramientas Nube</span>
+                <h2 class="section-title" data-tr="soft_title">Software y Herramientas Contables y Financieras</h2>
+            </div>
+            
+            <div class="software-grid-layout">
+                <!-- Modulo 1 -->
+                <div class="card software-card">
+                    <div>
+                        <h3>Eleva Software Contable</h3>
+                        <p data-tr="soft_desc_cont">Automatización total del ciclo contable, facturación electrónica y reportes en tiempo real en la nube.</p>
+                    </div>
+                    <button onclick="triggerPurchase('monthly')" class="btn btn-secondary" style="width: 100%;" data-tr="btn_comprar">Comprar</button>
+                </div>
+                <!-- Modulo 2 -->
+                <div class="card software-card">
+                    <div>
+                        <h3>Eleva Complementos</h3>
+                        <p data-tr="soft_desc_comp">Módulos avanzados de conciliación y complementos de auditoría digital integrada.</p>
+                    </div>
+                    <button onclick="triggerPurchase('monthly')" class="btn btn-secondary" style="width: 100%;" data-tr="btn_comprar">Comprar</button>
+                </div>
+                <!-- Modulo 3 -->
+                <div class="card software-card">
+                    <div>
+                        <h3>Eleva Rentas Naturales</h3>
+                        <p data-tr="soft_desc_rent">Carga de balances y generación automatizada de declaraciones de renta de personas naturales.</p>
+                    </div>
+                    <button onclick="triggerPurchase('monthly')" class="btn btn-secondary" style="width: 100%;" data-tr="btn_comprar">Comprar</button>
+                </div>
+                <!-- Modulo 4 -->
+                <div class="card software-card">
+                    <div>
+                        <h3>Eleva Exógena</h3>
+                        <p data-tr="soft_desc_exog">Estructuración inteligente de formatos nacionales y validaciones previas de inconsistencias.</p>
+                    </div>
+                    <button onclick="triggerPurchase('monthly')" class="btn btn-secondary" style="width: 100%;" data-tr="btn_comprar">Comprar</button>
+                </div>
+                <!-- Modulo 5 -->
+                <div class="card software-card">
+                    <div>
+                        <h3>Eleva Legalizaciones</h3>
+                        <p data-tr="soft_desc_legal">Gestión digital de viáticos, legalización de gastos de empleados y control presupuestal.</p>
+                    </div>
+                    <button onclick="triggerPurchase('monthly')" class="btn btn-secondary" style="width: 100%;" data-tr="btn_comprar">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial & Magazine Section -->
+    <section class="editorial-section" id="editorial">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-tag" data-tr="editorial_tag">Noticias y Revista</span>
+                <h2 class="section-title" data-tr="editorial_title">Publicaciones y Novedades Tributarias</h2>
+            </div>
+            <div class="editorial-layout">
+                <div class="articles-feed">
+                    <h3 data-tr="ultimas_noticias">Últimos Artículos</h3>
+                    {% if articles %}
+                        {% for article in articles|slice:":3" %}
+                        <div class="article-card">
+                            <div class="article-thumb" style="padding: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--bg-surface); width: 180px; height: 180px;">
+                                {% if article.cover_image_url %}
+                                    <img src="{{ article.cover_image_url }}" alt="Portada" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='{% static 'img/logo_jb.png' %}'; this.style.width='70%'; this.style.height='auto'; this.style.opacity='0.7'; this.style.objectFit='contain';">
+                                {% else %}
+                                    <img src="{% static 'img/logo_jb.png' %}" alt="Placeholder" style="width: 70%; height: auto; opacity: 0.7; object-fit: contain;">
+                                {% endif %}
+                            </div>
+                            <div class="article-info">
+                                <div>
+                                    <div class="article-date">Publicado: {{ article.published_at|date:"d M Y" }}</div>
+                                    <h4 class="article-title">{{ article.title }}</h4>
+                                    <p class="article-excerpt">{{ article.summary }}</p>
+                                </div>
+                                <a href="javascript:void(0);" class="service-link read-article-trigger" style="font-size: 0.85rem;" 
+                                   data-title="{{ article.title }}" 
+                                   data-date="{{ article.published_at|date:'d M Y' }}" 
+                                   data-content="{{ article.content }}" 
+                                   data-cover="{% if article.cover_image_url %}{{ article.cover_image_url }}{% endif %}" 
+                                   data-tr="leer_mas">Leer Artículo &rarr;</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="article-card">
+                            <div class="article-thumb" style="padding: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--bg-surface);">
+                                <img src="{% static 'img/logo_jb.png' %}" alt="Noticia" style="width: 70%; height: auto; opacity: 0.7; object-fit: contain;">
+                            </div>
+                            <div class="article-info">
+                                <div>
+                                    <div class="article-date">Publicado: 02 de Julio, 2026</div>
+                                    <h4 class="article-title">Nuevos plazos exógena para personas jurídicas</h4>
+                                    <p class="article-excerpt">Conoce el calendario detallado de vencimientos y las modificaciones normativas de la DIAN.</p>
+                                </div>
+                                <a href="javascript:void(0);" class="service-link read-article-trigger" style="font-size: 0.85rem;" 
+                                   data-title="Nuevos plazos exógena para personas jurídicas" 
+                                   data-date="02 de Julio, 2026" 
+                                   data-content="La Dirección de Impuestos y Aduanas Nacionales (DIAN) ha publicado oficialmente el nuevo esquema de plazos para la presentación de información exógena cambiaria y tributaria correspondiente al año gravable. Este calendario incluye ajustes clave en los últimos dígitos del NIT para evitar sobrecargas en la plataforma web de la entidad. Se recomienda a los contadores y revisores fiscales realizar auditorías previas de consistencias para descartar errores comunes en el diligenciamiento de los formatos 1001 y 1007." 
+                                   data-cover="{% static 'img/logo_jb.png' %}" 
+                                   data-tr="leer_mas">Leer Artículo &rarr;</a>
+                            </div>
+                        </div>
+                    {% endif %}
+                    
+                    <div style="text-align: center; margin-top: 24px;">
+                        <button onclick="openSubpage('noticias_feed')" class="btn btn-secondary" style="padding: 10px 28px;">Ver más artículos</button>
+                    </div>
+                </div>
+
+                <script id="articles-json" type="application/json">
+                [
+                    {% if articles %}
+                        {% for article in articles %}
+                        {
+                            "title": "{{ article.title|escapejs }}",
+                            "published_at": "{{ article.published_at|date:'c' }}",
+                            "published_at_formatted": "{{ article.published_at|date:'d M Y' }}",
+                            "published_at_month_year": "{{ article.published_at|date:'F Y' }}",
+                            "published_at_year": "{{ article.published_at|date:'Y' }}",
+                            "summary": "{{ article.summary|escapejs }}",
+                            "content": "{{ article.content|escapejs }}",
+                            "cover_image_url": "{{ article.cover_image_url|escapejs }}"
+                        }{% if not forloop.last %},{% endif %}
+                        {% endfor %}
+                    {% else %}
+                        {
+                            "title": "Nuevos plazos exógena para personas jurídicas",
+                            "published_at": "2026-07-02T12:00:00-05:00",
+                            "published_at_formatted": "02 Jul 2026",
+                            "published_at_month_year": "Julio 2026",
+                            "published_at_year": "2026",
+                            "summary": "Conoce el calendario detallado de vencimientos y las modificaciones normativas de la DIAN.",
+                            "content": "La Dirección de Impuestos y Aduanas Nacionales (DIAN) ha publicado oficialmente el nuevo esquema de plazos para la presentación de información exógena cambiaria y tributaria correspondiente al año gravable. Este calendario incluye ajustes clave en los últimos dígitos del NIT para evitar sobrecargas en la plataforma web de la entidad. Se recomienda a los contadores y revisores fiscales realizar auditorías previas de consistencias para descartar errores comunes en el diligenciamiento de los formatos 1001 y 1007.",
+                            "cover_image_url": ""
+                        }
+                    {% endif %}
+                ]
+                </script>
+
+                <div class="magazine-sidebar">
+                    <h3 data-tr="revista_corp">Revista Corporativa</h3>
+                    <div class="magazine-preview">
+                        {% if magazines %}
+                            {% for mag in magazines %}
+                            <div class="magazine-cover">
+                                <div class="title">JB</div>
+                                <div style="font-size: 0.8rem; font-weight:600; margin-top: 10px;">CONSULTING</div>
+                                <div style="margin-top: auto; font-size: 0.7rem; font-weight:700;">Edición N° {{ mag.edition_number }}</div>
+                            </div>
+                            <h4 style="margin-bottom: 8px;">{{ mag.title }}</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px;">Edición del {{ mag.publish_date }}</p>
+                            <a href="{{ mag.pdf_url }}" target="_blank" class="btn btn-secondary" style="width: 100%;">Descargar PDF</a>
+                            {% endfor %}
+                        {% else %}
+                            <div class="magazine-cover">
+                                <div class="title">JB</div>
+                                <div style="font-size: 0.8rem; font-weight:600; margin-top: 10px;">CONSULTING</div>
+                                <div style="margin-top: auto; font-size: 0.7rem; font-weight:700;">Edición N° 12</div>
+                            </div>
+                            <h4 style="margin-bottom: 8px;">Edición Semestral N° 12</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px;">Análisis profundo de la coyuntura tributaria nacional y auditorías internas automatizadas.</p>
+                            <a href="https://example.com/revistas/edicion-12.pdf" target="_blank" class="btn btn-secondary" style="width: 100%;" data-tr="descargar_pdf">Descargar PDF</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase Simulation Modal -->
+    <div class="modal-overlay" id="purchaseModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Simulador de Pago</h3>
+                <button onclick="closePurchaseModal()" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <form id="purchaseForm" onsubmit="submitMockPurchase(event)">
+                    <input type="hidden" id="planType" value="">
+                    
+                    <label for="customerEmail" data-tr="form_email">Correo Electrónico del Cliente</label>
+                    <input type="email" id="customerEmail" required placeholder="correo@empresa.com">
+                    
+                    <label for="cardNumber" data-tr="form_tarjeta">Número de Tarjeta (Prueba)</label>
+                    <input type="text" id="cardNumber" placeholder="4242 4242 4242 4242" required value="4242 4242 4242 4242">
+                    
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+                        <div>
+                            <label for="cardExpiry" data-tr="form_vencimiento">Vencimiento</label>
+                            <input type="text" id="cardExpiry" placeholder="MM/AA" required value="12/29">
+                        </div>
+                        <div>
+                            <label for="cardCvc" data-tr="form_cvc">CVC</label>
+                            <input type="text" id="cardCvc" placeholder="123" required value="123">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;" id="submitBtn" data-tr="btn_simular_pago">Simular Pago Exitoso</button>
+                </form>
+
+                <div id="loadingState" style="display:none; text-align:center; padding: 20px 0;">
+                    <div style="border: 4px solid rgba(10, 60, 139, 0.1); border-top-color: var(--primary); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 16px;"></div>
+                    <p style="color: var(--text-secondary);">Procesando pasarela de pago y entregando licencias...</p>
+                </div>
+
+                <div id="resultState" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Details Popup Modal -->
+    <div class="modal-overlay" id="articleDetailModal">
+        <div class="modal-content" style="max-width: 800px; max-height: 85vh; display: flex; flex-direction: column; width: 90%;">
+            <div class="modal-header" style="flex-shrink: 0; padding-bottom: 12px; border-bottom: 1px solid var(--border-color); margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-start;">
+                <div style="display:flex; flex-direction:column; text-align:left;">
+                    <span id="articleModalDate" style="font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.5px; font-weight:700;"></span>
+                    <h3 id="articleModalTitle" style="margin-top:4px; font-size:1.4rem; color:var(--brand-jb-navy);"></h3>
+                </div>
+                <button onclick="closeArticleModal()" class="modal-close" style="line-height: 1; padding: 0 4px;">&times;</button>
+            </div>
+            <div class="modal-body" style="padding-top:0; overflow-y: auto; flex-grow: 1; padding-right: 8px;">
+                <!-- Dynamically populated cover image -->
+                <img id="articleModalCover" src="" alt="Portada" style="width: 100%; max-height: 280px; object-fit: cover; border-radius: 8px; margin-bottom: 16px; display: none; border: 1px solid var(--border-color);" onerror="this.style.display='none';">
+                <p id="articleModalContent" style="color:var(--text-secondary); font-size:1rem; line-height:1.6; text-align:justify; white-space:pre-wrap;"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contacto">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <span class="section-tag" data-tr="contact_tag">Contacto corporativo</span>
+                <h3 data-tr="contact_title">Hablemos de su empresa</h3>
+                <p data-tr="contact_desc" style="margin-bottom: 30px;">Agende una llamada con nuestros consultores expertos para estructurar el outsourcing ideal de su compañía.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-method">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>+57 311 5863735</span>
+                    </div>
+                    <div class="contact-method">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <span>jbconsultingyco@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form card" onsubmit="submitContactForm(event, this)">
+                <div>
+                    <label for="contactName" data-tr="lbl_nombre">Nombre completo</label>
+                    <input type="text" id="contactName" required>
+                </div>
+                <div>
+                    <label for="contactCompany" data-tr="lbl_empresa">Empresa</label>
+                    <input type="text" id="contactCompany" required>
+                </div>
+                <div>
+                    <label for="contactPhone">Celular / Teléfono</label>
+                    <input type="tel" id="contactPhone" required>
+                </div>
+                <div>
+                    <label for="contactEmail" data-tr="lbl_correo">Correo Corporativo</label>
+                    <input type="email" id="contactEmail" required>
+                </div>
+                <div class="full-width">
+                    <label for="contactMessage" data-tr="lbl_mensaje">Requerimiento o Mensaje</label>
+                    <textarea id="contactMessage" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary full-width" data-tr="btn_enviar">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 JB Consulting & Co S.A.S. & Eleva. <span data-tr="derechos">Todos los derechos reservados.</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Inline fail-safe article details modal controller
+        document.addEventListener('DOMContentLoaded', () => {
+            const articleDetailModal = document.getElementById('articleDetailModal');
+            const articleModalTitle = document.getElementById('articleModalTitle');
+            const articleModalDate = document.getElementById('articleModalDate');
+            const articleModalContent = document.getElementById('articleModalContent');
+            const articleModalCover = document.getElementById('articleModalCover');
+
+            document.querySelectorAll('.read-article-trigger').forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const title = trigger.getAttribute('data-title');
+                    const date = trigger.getAttribute('data-date');
+                    const content = trigger.getAttribute('data-content');
+                    const cover = trigger.getAttribute('data-cover');
+                    
+                    if (articleModalTitle) articleModalTitle.textContent = title;
+                    if (articleModalDate) articleModalDate.textContent = date;
+                    if (articleModalContent) articleModalContent.textContent = content;
+                    
+                    if (articleModalCover) {
+                        if (cover && cover.trim() !== '') {
+                            articleModalCover.src = cover;
+                            articleModalCover.style.display = 'block';
+                        } else {
+                            articleModalCover.style.display = 'none';
+                        }
+                    }
+                    
+                    if (articleDetailModal) articleDetailModal.classList.add('active');
+                });
+            });
+            
+            // Close if clicked on dark backdrop overlay
+            if (articleDetailModal) {
+                articleDetailModal.addEventListener('click', (event) => {
+                    if (event.target === articleDetailModal) closeArticleModal();
+                });
+            }
+        });
+
+        function closeArticleModal() {
+            const articleDetailModal = document.getElementById('articleDetailModal');
+            if (articleDetailModal) articleDetailModal.classList.remove('active');
+        }
+    </script>
+    <!-- Dynamic Subpage Overlay -->
+    <div class="subpage-overlay" id="subpageOverlay">
+        <div class="subpage-container">
+            <div class="subpage-header">
+                <div class="subpage-logos">
+                    <!-- Traced logos from primary index.html -->
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <span style="font-family:'Outfit', sans-serif; font-weight:800; font-size:1.3rem; color:var(--brand-jb-navy); letter-spacing: -0.5px;">JB Consulting & Co</span>
+                        <div style="width: 1px; height: 28px; background: var(--border-color);"></div>
+                        <div style="display: flex; align-items: center; gap: 4px; font-family:'Outfit', sans-serif; font-weight:800; font-size:1.25rem; color:#0E4294; line-height: 1;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--brand-eleva-cyan);"><path d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.42 0-.83.04-1.24.12A6.5 6.5 0 0 0 2.5 13.5A3.5 3.5 0 0 0 6 17h11.5"/></svg>
+                            <span>Eleva</span>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="closeSubpage()" class="subpage-close-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" x2="5" y1="12" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                    Regresar al Inicio
+                </button>
+            </div>
+            
+            <div id="subpageContent">
+                <!-- Dynamically Injected Content -->
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/app.js' %}?v=3.7"></script>
+</body>
+</html>

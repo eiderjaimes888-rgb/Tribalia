@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tribalia | Ecosistema de Software Contable y Herramientas con IA</title>
+  <meta name="description" content="Tribalia Soluciones Informáticas S.A.S. Software contable nativo con Inteligencia Artificial, herramientas tributarias, nómina, compliance y gestión empresarial en la nube.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/logos/tribalia-favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.2">
+</head>
+<body>
+
+  <!-- Header Corporativo Tribalia -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="#inicio" class="brand-logo" aria-label="Tribalia Inicio">
+        <img src="assets/img/logos/tribalia-logo.svg" alt="Tribalia" style="height:72px;width:auto;">
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="#inicio" class="nav-link" data-i18n="nav_home">Inicio</a></li>
+        <li class="nav-item has-dropdown">
+          <span class="nav-link" data-i18n="nav_products">Productos <span style="font-size:0.65rem;">▼</span></span>
+          <ul class="dropdown-menu" id="navProductsDropdown"></ul>
+        </li>
+        <li class="nav-item"><a href="quienes-somos.html" class="nav-link" data-i18n="nav_about">Quiénes Somos</a></li>
+        <li class="nav-item"><a href="#noticias" class="nav-link" data-i18n="nav_news">Noticias</a></li>
+        <li class="nav-item"><a href="#revista" class="nav-link" data-i18n="nav_magazine">Revista</a></li>
+        <li class="nav-item"><a href="https://tienda.tribalia.com.co" target="_blank" rel="noopener noreferrer" class="nav-link" data-i18n="nav_store">Tienda</a></li>
+        <li class="nav-item"><a href="#contacto" class="nav-link" data-i18n="nav_contact">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="lang-btn" id="langBtn">EN</button>
+        <div class="nav-item has-dropdown">
+          <button type="button" class="btn btn-primary" style="padding: 9px 16px;" data-i18n="btn_access">Acceso Aplicaciones ▾</button>
+          <ul class="dropdown-menu dropdown-menu--right" id="navAccessDropdown"></ul>
+        </div>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Rotativo Animado de Aplicaciones -->
+  <section id="inicio" class="hero-showcase">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-badge" id="heroBadge">Ecosistema Tribalia · 1 / 10</span>
+          <h1 class="hero-title" id="heroTitle">Tribalia Software Contable</h1>
+          <p class="hero-desc" id="heroDesc"></p>
+          <div class="hero-features-inline" id="heroChips"></div>
+          <div class="hero-cta-group">
+            <a href="/tribalia-software-contable" id="heroBtnInfo" class="btn btn-light">Más información →</a>
+            <a href="https://tienda.tribalia.com.co" id="heroBtnStore" target="_blank" rel="noopener noreferrer" class="btn btn-glass">Adquirir licencia (Mensual / Anual)</a>
+          </div>
+        </div>
+
+        <div class="hero-visual-card" id="heroVisualCard">
+          <div class="hero-product-logo-box" id="heroProductLogo"></div>
+          <div>
+            <h2 id="heroCardTitle" style="font-size:1.25rem;margin-bottom:4px;">Tribalia Software Contable</h2>
+            <p id="heroCardTagline" style="font-size:0.88rem;color:#64748B;"></p>
+          </div>
+          <a href="https://contable.tribalia.com.co" id="heroCardSubdomain" target="_blank" rel="noopener noreferrer" class="hero-product-subdomain">contable.tribalia.com.co</a>
+          <div class="hero-color-swatches" id="heroSwatches"></div>
+        </div>
+      </div>
+
+      <div class="hero-controls">
+        <div class="hero-dots" id="heroDots"></div>
+        <div class="hero-arrows">
+          <button type="button" class="arrow-btn" id="heroPrev" aria-label="Aplicación anterior">‹</button>
+          <button type="button" class="arrow-btn" id="heroNext" aria-label="Siguiente aplicación">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ecosistema de 10 Productos -->
+  <section id="productos" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="ecosystem_eyebrow">Portafolio Oficial</span>
+        <h2 class="section-title" data-i18n="ecosystem_title">Ecosistema Tecnológico Tribalia</h2>
+        <p class="section-subtitle" data-i18n="ecosystem_subtitle">Cada solución cuenta con su propia identidad cromática, acceso directo en la nube, página informativa con demostraciones y licenciamiento mensual o anual.</p>
+      </div>
+
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Noticias Tribalia -->
+  <section id="noticias" class="section section--white">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="news_eyebrow">Actualidad Tribalia</span>
+        <h2 class="section-title" data-i18n="news_title">Noticias y Novedades Normativas</h2>
+        <p class="section-subtitle" data-i18n="news_subtitle">Actualizaciones tributarias, lanzamientos del ecosistema Tribalia y guías prácticas para contadores y empresas.</p>
+      </div>
+
+      <div id="newsContainer" style="text-align:center;padding:36px 24px;border:1px dashed var(--border-light);border-radius:var(--radius-lg);background:var(--bg-page);color:var(--gris-suave);">
+        <p data-i18n="news_empty" style="font-size:1rem;">Próximamente publicaremos aquí las noticias y actualizaciones oficiales de Tribalia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Revista Tribalia -->
+  <section id="revista" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="mag_eyebrow">Publicación Especializada</span>
+        <h2 class="section-title" data-i18n="mag_title">Revista Tribalia</h2>
+        <p class="section-subtitle" data-i18n="mag_subtitle">Ediciones digitales interactivas tipo libro físico con cambio de página animado y descarga directa en PDF.</p>
+      </div>
+
+      <div id="magazineContainer" style="text-align:center;padding:36px 24px;border:1px dashed var(--border-light);border-radius:var(--radius-lg);background:var(--blanco);color:var(--gris-suave);">
+        <p data-i18n="mag_empty" style="font-size:1rem;">Próximamente estará disponible la primera edición interactiva de la Revista Tribalia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner Tienda Hostinger -->
+  <section id="tienda" class="section section--white">
+    <div class="container">
+      <div class="store-cta-banner">
+        <div>
+          <span class="hero-badge" style="margin-bottom:10px;" data-i18n="store_badge">Licenciamiento Flexible</span>
+          <h2 data-i18n="store_title">Adquiere tu licencia Mensual o Anual en la Tienda Tribalia</h2>
+          <p data-i18n="store_desc">Activa cualquiera de nuestras 10 soluciones en la nube de forma inmediata con planes flexibles adaptados a contadores independientes, firmas y empresas.</p>
+        </div>
+        <div>
+          <a href="https://tienda.tribalia.com.co" target="_blank" rel="noopener noreferrer" class="btn btn-light" data-i18n="store_btn">Ir a la Tienda Tribalia ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="contact_eyebrow">Hablemos</span>
+        <h2 class="section-title" data-i18n="contact_title">Contacto Directo Tribalia</h2>
+        <p class="section-subtitle" data-i18n="contact_subtitle">¿Necesitas una demostración personalizada o asesoría para elegir tu plan? Nuestro equipo está listo para atenderte.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info-card">
+          <h3 data-i18n="contact_channels">Canales Oficiales</h3>
+          <p style="color:rgba(255,255,255,0.82);font-size:0.94rem;" data-i18n="contact_channels_desc">Comunícate directamente con Tribalia Soluciones Informáticas S.A.S.</p>
+          <ul class="contact-list">
+            <li>📱 <span>WhatsApp / Teléfono: <strong>+57 313 271 8850</strong></span></li>
+            <li>📸 <span>Instagram: <strong>@tribalia.si</strong></span></li>
+            <li>🌐 <span>Sitio Web: <strong>www.tribalia.com.co</strong></span></li>
+            <li>✉️ <span>Correo: <strong>contacto@tribalia.com.co</strong></span></li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="tribaliaContactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cName" data-i18n="form_name">Nombre completo</label>
+              <input type="text" id="cName" required placeholder="Ej. Laura Gómez">
+            </div>
+            <div class="form-group">
+              <label for="cEmail" data-i18n="form_email">Correo electrónico</label>
+              <input type="email" id="cEmail" required placeholder="laura@empresa.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cPhone" data-i18n="form_phone">Teléfono / WhatsApp</label>
+              <input type="tel" id="cPhone" placeholder="313 000 0000">
+            </div>
+            <div class="form-group">
+              <label for="cProduct" data-i18n="form_product">Aplicación de interés</label>
+              <select id="cProduct">
+                <option value="General">Ecosistema Completo Tribalia</option>
+                <option value="Software Contable">Tribalia Software Contable</option>
+                <option value="Complementos">Tribalia Complementos</option>
+                <option value="Compliance">Tribalia Compliance</option>
+                <option value="Exógena">Tribalia Exógena</option>
+                <option value="Rentas Naturales">Tribalia Rentas Naturales</option>
+                <option value="Egresos">Tribalia Egresos</option>
+                <option value="Legalizaciones">Tribalia Legalizaciones</option>
+                <option value="Capacitaciones">Tribalia Capacitaciones</option>
+                <option value="Meeting">Tribalia Meeting</option>
+                <option value="Recursos Humanos">Tribalia Recursos Humanos</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cMessage" data-i18n="form_message">Mensaje</label>
+            <textarea id="cMessage" rows="4" required placeholder="Cuéntanos qué proceso deseas automatizar..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" data-i18n="form_submit">Enviar mensaje</button>
+          <p id="contactFeedback" style="display:none;color:#008B7A;font-weight:600;font-size:0.9rem;"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Oficial Tribalia -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom:14px;">
+            <img src="assets/img/logos/tribalia-logo-blanco.svg" alt="Tribalia" style="height:48px;width:auto;">
+          </div>
+          <p style="font-size:0.88rem;max-width:300px;">Tribalia Soluciones Informáticas S.A.S. Software contable, tributario y de gestión empresarial impulsado por Inteligencia Artificial.</p>
+        </div>
+
+        <div>
+          <div class="footer-title">Soluciones Core</div>
+          <ul class="footer-links">
+            <li><a href="/tribalia-software-contable">Software Contable</a></li>
+            <li><a href="/tribalia-complementos">Complementos</a></li>
+            <li><a href="/tribalia-compliance">Compliance</a></li>
+            <li><a href="/tribalia-exogena">Exógena</a></li>
+            <li><a href="/tribalia-rentas-naturales">Rentas Naturales</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Operación & Talento</div>
+          <ul class="footer-links">
+            <li><a href="/tribalia-egresos">Egresos</a></li>
+            <li><a href="/tribalia-legalizaciones">Legalizaciones</a></li>
+            <li><a href="/tribalia-capacitaciones">Capacitaciones</a></li>
+            <li><a href="/tribalia-meeting">Meeting</a></li>
+            <li><a href="/tribalia-recursos-humanos">Recursos Humanos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Ecosistema</div>
+          <ul class="footer-links">
+            <li><a href="#noticias">Noticias Tribalia</a></li>
+            <li><a href="#revista">Revista Tribalia</a></li>
+            <li><a href="https://tienda.tribalia.com.co" target="_blank" rel="noopener noreferrer">Tienda de Licencias</a></li>
+            <li><a href="https://instagram.com/tribalia.si" target="_blank" rel="noopener noreferrer">@tribalia.si</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Tribalia Soluciones Informáticas S.A.S. Todos los derechos reservados.</span>
+        <span>www.tribalia.com.co</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js?v=1.5"></script>
+  <script src="assets/js/main.js?v=1.5"></script>
+</body>
+</html>
